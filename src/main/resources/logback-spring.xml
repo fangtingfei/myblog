@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration >
+
+    <!--包含springboot对logback日志的默认配置-->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" ></include>
+    <property name="LOG_FILE" value="D:/myjavacode/myblog/log/myblog.log}"></property>-->
+    <include resource="org/springframework/boot/logging/logback/consoleappender.xml" ></include>
+
+    <!--重写Springboot框架对org/springframework/boot/logging/logback/file-appender.xml文件的配置-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n
+            </pattern>
+        </layout>
+    </appender>
+    <appender name="TIME_FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MMdd}.%i</fileNamePattern>
+            <!--日志文件保留一个月-->
+            <maxHistory>30</maxHistory>
+            <!--Spring Boot默认单个日志文件大小上线为10M，大于10会分割，这样保存会允许最大100M-->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <!--<appender-ref ref="CONSOLE" ></appender-ref>-->
+        <appender-ref ref="TIME_FILE" ></appender-ref>
+        <appender-ref ref="STDOUT"></appender-ref>
+    </root>
+
+</configuration>

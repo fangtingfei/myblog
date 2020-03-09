@@ -1,0 +1,43 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /myblog
+spring:
+  application:
+    name: springboot-myblog
+  thymeleaf:
+    mode: HTML
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///myblog?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    password: root
+    username: root
+
+  mvc:
+    favicon:
+      enabled: false
+
+logging:
+  level:
+    root: info
+    cn.ftf.myblog: debug
+  file:
+    name: myblog.log
+    path: /bog
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: cn.ftf.myblog.pojo
+#  configuration:
+#    map-underscore-to-camel-case: true
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+
+comment:
+  avatar: http://www.baidu.png
+
+

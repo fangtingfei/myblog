@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ftf.myblog.dao.BlogDao">
+
+
+    <update id="viewOne" parameterType="int">
+        update t_blog set views =views+1 where id = #{id}
+    </update>
+
+    <resultMap id="User" type="cn.ftf.myblog.pojo.User">
+        <id property="id" column="id"/>
+        <result property="nickname" column="nickname"/>
+        <result property="username" column="username"/>
+        <result property="email" column="email"/>
+        <result property="avatar" column="avatar"/>
+    </resultMap>
+
+    <resultMap id="blog" type="cn.ftf.myblog.entity.BlogQuery">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="createTime" column="createTime"/>
+        <result property="recommend" column="recommend"/>
+        <result property="typeId" column="type_id"/>
+        <association property="type" javaType="cn.ftf.myblog.pojo.Type">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+        </association>
+    </resultMap>
+
+    <!--resultMap-->
+
+    <select id="getAllBlogQuery" resultMap="blog">
+        select b.id,b.title,b.createTime,b.recommend,b.type_id,t.id,t.name from t_blog b left outer join
+        t_type t on b.type_id = t.id order by b.createTime desc
+    </select>
+
+    <delete id="deleteBlog" parameterType="int">
+        delete from t_blog where id = #{id}
+    </delete>
+
+    <delete id="deleteBlogAndTag" parameterType="int">
+        delete from t_blog_tags where blog_id = #{blogId}
+    </delete>
+
+
+    <insert id="saveBlog" parameterType="cn.ftf.myblog.pojo.Blog">
+        <selectKey order="AFTER" resultType="java.lang.Integer" keyProperty="id">
+            SELECT LAST_INSERT_ID();
+        </selectKey>
+        insert into t_blog (id,title, content, firstImg, flag,
+        views, appreciation, shareStatement, commentAble,published,
+        recommend, createTime, updateTime, type_id, user_id, description)
+        values (#{id},#{title},#{content},#{firstPicture},#{flag},#{views},#{appreciation},
+        #{shareStatement},#{commentabled},#{published},#{recommend},#{createTime},
+        #{updateTime},#{typeId},#{userId},#{description});
+    </insert>
+
+    <insert id="saveBlogAndTag" parameterType="cn.ftf.myblog.entity.BlogAndTag">
+        insert into t_blog_tags (tag_id, blog_id) values (#{tagId},#{blogId});
+    </insert>
+
+    <select id="searchByTitleOrTypeOrRecommend" parameterType="cn.ftf.myblog.entity.SearchBlog" resultMap="blog">
+        <bind name="pattern" value="'%' + title + '%'" />
+        select b.id,b.title,b.createTime,b.recommend,b.type_id,t.id,t.name from t_blog b ,t_type t
+        <where>
+            <if test="1 == 1">
+                b.type_id = t.id
+            </if>
+            <if test="typeId != null">
+                and b.type_id = #{typeId}
+            </if>
+            <if test="recommend2 != null">
+                and b.recommend = #{recommend2}
+            </if>
+            <if test="title != null">
+                and b.title like #{pattern}
+            </if>
+        </where>
+    </select>
+
+    <select id="getBlogById" resultType="cn.ftf.myblog.entity.ShowBlog" >
+        select b.id,b.published,b.flag,b.title,b.content,b.type_id typeId,
+         b.firstImg firstPicture,b.description,b.recommend,b.shareStatement,
+         b.appreciation,b.commentAble commentabled from t_blog b  where  b.id = #{id};
+    </select>
+
+
+    <update id="updateBlog" parameterType="cn.ftf.myblog.entity.ShowBlog">
+        update t_blog set published = #{published},flag = #{flag} ,
+        title = #{title}, content = #{content}, type_id = #{typeId},
+        firstImg = #{firstPicture} , description = #{description} , recommend = #{recommend} ,
+        shareStatement = #{shareStatement}, appreciation = #{appreciation},
+        commentAble = #{commentabled} ,updateTime = #{updateTime} where id = #{id};
+    </update>
+
+
+    <resultMap id="firstPageBlog" type="cn.ftf.myblog.entity.FirstPageBlog">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="firstPicture" column="firstImg"/>
+        <result property="views" column="views"/>
+        <result property="createTime" column="createTime"/>
+        <result property="description" column="description"/>
+        <result property="typeName" column="name"/>
+        <result property="nickname" column="nickname"/>
+        <result property="avatar" column="avatar"/>
+    </resultMap>
+
+
+    <select id="getFirstPageBlog" resultMap="firstPageBlog">
+        select b.id,b.title,b.firstImg, b.views,b.createTime,b.description,
+        t.name ,u.nickname, u.avatar
+        from t_blog b, t_type t,t_user u
+        where b.type_id = t.id and  u.id = b.user_id order by b.createTime desc
+    </select>
+
+    <select id="getAllRecommendBlog" resultType="cn.ftf.myblog.entity.RecommendBlog">
+        select id,title,recommend from t_blog;
+    </select>
+
+
+    <select id="getSearchBlog" resultMap="firstPageBlog">
+        <bind name="pattern" value="'%' + query + '%'" />
+        select b.id,b.title,b.firstImg, b.views,b.createTime,b.description,
+        t.name ,u.nickname, u.avatar
+        from t_blog b,t_type t,t_user u
+        where b.type_id = t.id and  u.id = b.user_id and b.title like #{pattern} or b.content like  #{pattern}
+        order by b.createTime desc
+    </select>
+
+
+
+
+    <resultMap id="detailedBlog" type="cn.ftf.myblog.entity.DetailedBlog">
+        <id property="id" column="bid"/>
+        <result property="firstPicture" column="firstImg"/>
+        <result property="flag" column="flag"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="views" column="views"/>
+        <result property="createTime" column="createTime"/>
+        <result property="commentabled" column="commentAble"/>
+        <result property="shareStatement" column="shareStatement"/>
+        <result property="appreciation" column="appreciation"/>
+        <result property="nickname" column="nickname"/>
+        <result property="avatar" column="avatar"/>
+        <collection property="tags" javaType="ArrayList" ofType="cn.ftf.myblog.pojo.Tag"
+         column="id" select="cn.ftf.myblog.dao.TagDao.getById"
+        ></collection>
+    </resultMap>
+
+    <select id="getDetailedBlog" resultMap="detailedBlog" parameterType="int">
+        SELECT b.id bid,b.firstImg,b.flag,b.title,b.content,b.views,b.createTime,b.commentAble,b.shareStatement,b.appreciation, u.nickname,u.avatar
+        FROM t_blog b,t_user u
+        WHERE b.user_id = u.id AND  b.id = #{id}
+    </select>
+
+    <select id="getByTypeId" resultMap="firstPageBlog">
+        select b.id,b.title,b.firstImg, b.views,b.createTime,b.description,t.name,
+        u.nickname, u.avatar
+        from t_blog b, t_type t,t_user u
+        where b.type_id = t.id and u.id = b.user_id and b.type_id = #{typeId} order by b.createTime desc
+    </select>
+
+    <select id="getByTagId" resultType="cn.ftf.myblog.entity.FirstPageBlog">
+        select b.id,b.title,b.firstImg,b.views,b.createTime,b.description,
+        t.name,u.nickname,u.avatar
+        from t_blog b,t_type t,t_user u ,t_blog_tags tb,t_tag t1
+        where b.type_id = t.id and u.id = b.user_id and tb.blog_id = b.id and tb.tag_id = t1.id and t1.id = #{tagId}
+        order by b.createTime desc
+    </select>
+
+
+</mapper>
