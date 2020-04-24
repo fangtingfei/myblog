@@ -9,7 +9,7 @@ import java.util.List;
 
 
 public class DetailedBlog {
-    private Long id;
+    private Integer id;
     private String firstPicture;
     private String flag;
     private String title;
@@ -25,11 +25,11 @@ public class DetailedBlog {
 
     private List<Tag> tags = new ArrayList<>();
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

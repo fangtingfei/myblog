@@ -3,15 +3,15 @@ package cn.ftf.myblog.entity;
 
 public class RecommendBlog {
 
-    private Long id;
+    private Integer id;
     private String title;
-    private boolean recommend;
+    private boolean recommend=true;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -21,14 +21,6 @@ public class RecommendBlog {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public boolean isRecommend() {
-        return recommend;
-    }
-
-    public void setRecommend(boolean recommend) {
-        this.recommend = recommend;
     }
 
     @Override

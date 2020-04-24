@@ -1,8 +1,5 @@
 package cn.ftf.myblog.pojo;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Type {
     private Integer id;
     private String name;
@@ -43,6 +40,7 @@ public class Type {
         return "Type{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", blogNum=" + blogNum +
                 '}';
     }
 }

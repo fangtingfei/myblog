@@ -1,7 +1,6 @@
 package cn.ftf.myblog.service;
 
 
-import cn.ftf.myblog.NotFountException;
 import cn.ftf.myblog.dao.BlogDao;
 import cn.ftf.myblog.entity.*;
 import cn.ftf.myblog.pojo.Blog;
@@ -90,13 +89,7 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public List<RecommendBlog> getRecommendedBlog() {
         List<RecommendBlog> allRecommendBlog = blogDao.getAllRecommendBlog();
-        List<RecommendBlog> allRecommendedBlog = new ArrayList<>();
-        for (RecommendBlog recommendBlog : allRecommendBlog) {
-            if (recommendBlog.isRecommend() == true) {
-                allRecommendedBlog.add(recommendBlog);
-            }
-        }
-        return allRecommendedBlog;
+        return allRecommendBlog;
     }
 
     @Override
@@ -107,13 +100,11 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public DetailedBlog getDetailedBlog(Integer id) {
         DetailedBlog detailedBlog = blogDao.getDetailedBlog(id);
-        blogDao.viewOne(id);
-        if (detailedBlog == null) {
-            System.out.println("the blog is not exist !  "+id);
-            throw new NotFountException("The blog is not exist!");
+        if(detailedBlog!=null){
+            blogDao.viewOne(id);
+            String content = detailedBlog.getContent();
+            detailedBlog.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
         }
-        String content = detailedBlog.getContent();
-        detailedBlog.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
         return detailedBlog;
     }
 

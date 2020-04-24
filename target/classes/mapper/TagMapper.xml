@@ -3,7 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.ftf.myblog.dao.TagDao">
-
+    <resultMap id="findAllTagMap" type="cn.ftf.myblog.pojo.Tag">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"/>
+        <association property="blogNum" javaType="int" column="id" select="cn.ftf.myblog.dao.TagDao.blogNum"></association>
+    </resultMap>
     <select id="getById" resultType="cn.ftf.myblog.pojo.Tag">
         select * from t_tag where id in (select tag_id from t_blog_tag where blog_id=#{id})
     </select>
@@ -17,7 +21,7 @@
     </select>
 
 
-    <select id="findAll" resultType="cn.ftf.myblog.pojo.Tag">
+    <select id="findAll"  resultMap="findAllTagMap">
         select * from t_tag
     </select>
 

@@ -1,8 +1,6 @@
 package cn.ftf.myblog.pojo;
 
 
-import cn.ftf.myblog.entity.DetailedBlog;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

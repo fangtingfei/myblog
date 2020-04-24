@@ -28,14 +28,14 @@ TagController {
     @GetMapping("/tags/{id}")
     public String tag(@RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum,
                       @PathVariable Integer id, Model model) {
-        List<Tag> tags = tagService.getAllTag();
+        List<Tag> allTag = tagService.getAllTag();
         //-1表示从首页导航点进来的
         if (id == -1) {
-            id = tags.get(0).getId();
+            id = allTag.get(0).getId();
         }
-        model.addAttribute("tags", tags);
+        model.addAttribute("tags", allTag);
         List<FirstPageBlog> blogs = blogService.getByTagId(id);
-        PageHelper.startPage(pageNum, 100);
+        PageHelper.startPage(pageNum, 1);
         PageInfo<FirstPageBlog> pageInfo = new PageInfo<>(blogs);
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("activeTagId", id);

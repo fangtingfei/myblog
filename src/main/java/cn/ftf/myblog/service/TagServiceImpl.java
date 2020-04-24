@@ -3,7 +3,6 @@ package cn.ftf.myblog.service;
 import cn.ftf.myblog.dao.TagDao;
 import cn.ftf.myblog.entity.QueryPageBean;
 import cn.ftf.myblog.pojo.Tag;
-import cn.ftf.myblog.pojo.Type;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -116,7 +117,7 @@ public class BlogController {
     }
 
     @PostMapping("/blogs/update")
-    public String editPost(ShowBlog showBlog,RedirectAttributes attributes) {
+    public String editPost(ShowBlog showBlog, RedirectAttributes attributes) {
         blogService.updateBlog(showBlog);
         attributes.addFlashAttribute("message","Operates successfully!");
         return "redirect:/admin/blogs";

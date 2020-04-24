@@ -9,8 +9,8 @@ import java.util.List;
 public interface TypeService {
     void addType(String typeName);
     Type findById(Integer id);
-    PageInfo pageQuery(QueryPageBean  queryPageBean);
-    Type updateType(Integer id,Type type);
+    PageInfo pageQuery(QueryPageBean queryPageBean);
+    Type updateType(Integer id, Type type);
     void delete(Integer id);
     List<Type> findAll();
     int updateType(Type type);

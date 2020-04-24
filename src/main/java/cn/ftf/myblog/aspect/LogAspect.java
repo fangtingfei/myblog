@@ -16,7 +16,7 @@ import java.util.Arrays;
 public class LogAspect {
 
     private Logger logger= LoggerFactory.getLogger(this.getClass());
-    @Pointcut("execution(* cn.ftf.myblog.web.*.*(..))")  //拦截所有的controller
+    @Pointcut("execution(* cn.ftf.myblog.web..*.*(..))")  //拦截所有的controller
     public void log(){
 
     }

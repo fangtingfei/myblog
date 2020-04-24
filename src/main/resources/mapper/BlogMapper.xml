@@ -108,7 +108,6 @@
         <result property="avatar" column="avatar"/>
     </resultMap>
 
-
     <select id="getFirstPageBlog" resultMap="firstPageBlog">
         select b.id,b.title,b.firstImg, b.views,b.createTime,b.description,
         t.name ,u.nickname, u.avatar
@@ -117,18 +116,18 @@
     </select>
 
     <select id="getAllRecommendBlog" resultType="cn.ftf.myblog.entity.RecommendBlog">
-        select id,title,recommend from t_blog;
+       select id,title from t_blog where recommend = true order by createTime desc LIMIT 4
     </select>
 
 
-    <select id="getSearchBlog" resultMap="firstPageBlog">
-        <bind name="pattern" value="'%' + query + '%'" />
-        select b.id,b.title,b.firstImg, b.views,b.createTime,b.description,
-        t.name ,u.nickname, u.avatar
-        from t_blog b,t_type t,t_user u
-        where b.type_id = t.id and  u.id = b.user_id and b.title like #{pattern} or b.content like  #{pattern}
-        order by b.createTime desc
-    </select>
+    <!--<select id="getSearchBlog" resultMap="firstPageBlog">-->
+        <!--<bind name="pattern" value="'%' + query + '%'" />-->
+        <!--select b.id,b.title,b.firstImg, b.views,b.createTime,b.description,-->
+        <!--t.name ,u.nickname, u.avatar-->
+        <!--from t_blog b,t_type t,t_user u-->
+        <!--where b.type_id = t.id and  u.id = b.user_id and b.title like #{pattern} or b.content like  #{pattern}-->
+        <!--order by b.createTime desc-->
+    <!--</select>-->
 
 
 

@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 80
   servlet:
     context-path: /myblog
 spring:
@@ -9,8 +9,8 @@ spring:
     mode: HTML
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql:///myblog?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
-    password: root
+    url: jdbc:mysql://39.101.191.209:3306/myblog?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    password: Ftf_666666
     username: root
 
   mvc:
@@ -21,9 +21,7 @@ logging:
   level:
     root: info
     cn.ftf.myblog: debug
-  file:
-    name: myblog.log
-    path: /bog
+
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml

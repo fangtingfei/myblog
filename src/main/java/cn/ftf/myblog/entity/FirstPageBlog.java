@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class FirstPageBlog {
     //Blog
-    private Long id;
+    private Integer id;
     private String title;
     private String firstPicture;
     private Integer views;
@@ -20,11 +20,11 @@ public class FirstPageBlog {
     private String nickname;
     private String avatar;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
