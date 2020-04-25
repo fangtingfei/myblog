@@ -108,6 +108,17 @@
             <artifactId>commonmark-ext-gfm-tables</artifactId>
             <version>0.10.0</version>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.wltea.ik-analyzer</groupId>-->
+            <!--<artifactId>ik-analyzer</artifactId>-->
+            <!--<version>3.2.8</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.wltea.ik-analyzer</groupId>
+            <artifactId>IKAnalyzer-lucene</artifactId>
+            <version>8.0.0</version>
+        </dependency>
 
     </dependencies>
 

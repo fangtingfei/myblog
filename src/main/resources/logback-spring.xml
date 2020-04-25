@@ -2,7 +2,10 @@
 <configuration>
 
     <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
-    <property name="LOG_FILE" value="C:/app/logs}"></property>-->
+    <property name="LOG_FILE" value="C:/app/logs/all}"></property>-->
+    <property name="LOG_FILE_ERROR" value="C:/app/logs/error}"></property>-->
+    <property name="LOG_FILE_INFO" value="C:/app/logs/info}"></property>-->
+    <property name="LOG_FILE_WARN" value="C:/app/logs/warn}"></property>-->
 
     <!--重写Springboot框架对默认logback配置文件的配置-->
     <!--STDOUT控制台输出配置-->
@@ -13,6 +16,7 @@
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
         </layout>
     </appender>
+
     <!--持久化日志保存策略，按每天保存-->
     <appender name="TIME_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -30,6 +34,69 @@
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
         </layout>
     </appender>
+
+
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志位置和名称-->
+            <fileNamePattern>${LOG_FILE_ERROR}/myblog.log.%d{yyyy-MMdd}.%i</fileNamePattern>
+            <!--日志文件保留15天-->
+            <maxHistory>15</maxHistory>
+            <!--自定义文件配置，不配默认。SpringBoot默认单个日志文件大小上线为10M，大于10会分割，这样保存会允许最大100M-->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>20MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </layout>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE_INFO}/myblog.log.%d{yyyy-MMdd}.%i</fileNamePattern>
+            <maxHistory>15</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>20MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </layout>
+        <!-- 过滤掉非info的日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE_WARN}/myblog.log.%d{yyyy-MMdd}.%i</fileNamePattern>
+            <maxHistory>15</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>20MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </layout>
+        <!-- 过滤掉非WARN的日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+
     <!--专为Mysql定制日志级别-->
     <logger name="com.apache.ibatis" level="TRACE"/>
     <logger name="java.sql.Connection" level="DEBUG"/>
@@ -40,6 +107,9 @@
     <root level="INFO">
         <appender-ref ref="TIME_FILE" ></appender-ref>
         <appender-ref ref="STDOUT"></appender-ref>
+        <appender-ref ref="ERROR"></appender-ref>
+        <appender-ref ref="INFO"></appender-ref>
+        <appender-ref ref="WARN"></appender-ref>
     </root>
 
 </configuration>

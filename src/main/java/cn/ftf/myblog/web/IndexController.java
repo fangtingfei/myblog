@@ -42,7 +42,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(Model model, @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum) {
-        PageHelper.startPage(pageNum, 6);
+        PageHelper.startPage(pageNum, 6);  //第几页，一页多少个数据，其紧跟着的第一条查询指令会被分页，原理是ThreadLocal本地线程变量
         List<Tag> tags=new ArrayList<>();
         List<Type> types=new ArrayList<>();
         List<FirstPageBlog> allFirstPageBlog = blogService.getAllFirstPageBlog();

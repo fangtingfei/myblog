@@ -2,9 +2,70 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac4b1c9f-635d-4d81-b7a1-e2324fa2c55b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_analyzers_common_8_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_core_8_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_queries_8_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_queryparser_8_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_sandbox_8_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_wltea_ik_analyzer_IKAnalyzer_lucene_8_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/IKAnalyzer/stopword.dic" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/MyblogApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/MyblogApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/interceptor/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/interceptor/WebConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myblog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/myblog.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myblog.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/MyblogApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/NotFountException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/aspect/LogAspect$RequestInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/aspect/LogAspect.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/dao/BlogDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/dao/CommentDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/dao/TagDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/dao/TypeDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/dao/UserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/entity/BlogAndTag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/entity/BlogQuery.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/entity/DetailedBlog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/entity/FirstPageBlog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/entity/PageResult.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/entity/QueryPageBean.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/entity/RecommendBlog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/entity/RequestLog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/entity/SearchBlog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/entity/ShowBlog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/hander/ControllerExceptionHander.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/interceptor/LoginInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/interceptor/WebConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/pojo/Blog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/pojo/Comment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/pojo/Tag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/pojo/Type.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/pojo/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/service/BlogService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/service/BlogServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/service/CommentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/service/CommentServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/service/TagService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/service/TagServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/service/TypeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/service/TypeServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/service/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/utils/MD5Utils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/utils/MarkdownUtils$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/utils/MarkdownUtils$CustomAttributeProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/utils/MarkdownUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/web/AboutController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/web/CommentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/web/IndexController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/web/TagController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/web/TypeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/web/admin/AdminTagController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/web/admin/AdminTypeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/web/admin/BlogController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/web/admin/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/ftf/myblog/web/others/OtherController.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,10 +92,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/entity/RecommendBlog.java">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+            <state relative-caret-position="456">
+              <caret line="120" column="21" selection-start-line="120" selection-start-column="21" selection-end-line="120" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/IKAnalyzer.cfg.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -42,82 +112,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+            <state relative-caret-position="262">
+              <caret line="26" column="36" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/admin/LoginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="20" column="28" lean-forward="true" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/interceptor/LoginInterceptor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/interceptor/WebConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/logback-spring.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
+            <state relative-caret-position="-62">
+              <caret line="81" column="44" selection-start-line="81" selection-start-column="44" selection-end-line="81" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/cn/ftf/myblog/MyblogApplicationTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/MyblogApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="47" column="56" selection-start-line="47" selection-start-column="56" selection-end-line="47" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/TypeServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/main/resources/IKAnalyzer/stopword.dic">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -133,7 +145,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>add</find>
       <find>tagIds</find>
       <find>bloga</find>
       <find>getA</find>
@@ -163,6 +174,7 @@
       <find>save</find>
       <find>getBlog</find>
       <find>HH</find>
+      <find>get</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -176,9 +188,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/static/Others/devLog.html" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/pojo/Type.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/TypeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/TypeServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/dao/TypeDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/pojo/Tag.java" />
@@ -203,7 +212,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/admin/_fragments.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
         <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/admin/BlogController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/BlogMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/entity/ShowBlog.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/admin/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/admin/blogs-update.html" />
@@ -212,8 +220,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/others/devlog.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/blog.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/_fragments.html" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/IndexController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/BlogServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/hander/ControllerExceptionHander.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/admin/AdminTagController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/CommentServiceImpl.java" />
@@ -222,11 +228,17 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/dao/CommentDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/aspect/LogAspect.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/admin/AdminTagController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/logback-spring.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/MyblogApplication.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/interceptor/WebConfig.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/BlogServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/BlogMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/IndexController.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/IKAnalyzer/hotword.dic" />
+        <option value="$PROJECT_DIR$/src/main/resources/IKAnalyzer/stopword.dic" />
+        <option value="$PROJECT_DIR$/src/main/resources/IKAnalyzer.cfg.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/logback-spring.xml" />
       </list>
     </option>
   </component>
@@ -242,11 +254,27 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="myblog" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="myblog" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="121" />
-    <option name="y" value="-9" />
-    <option name="width" value="1583" />
-    <option name="height" value="1050" />
+    <option name="x" value="-13" />
+    <option name="y" value="-3" />
+    <option name="width" value="1938" />
+    <option name="height" value="1049" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -254,7 +282,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -295,6 +322,24 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="myblog" type="462c0819:PsiDirectoryNode" />
+              <item name="interceptor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myblog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myblog" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="myblog" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myblog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myblog" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="myblog" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -307,11 +352,19 @@
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="myblog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myblog" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="CatdeaLogs" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -322,31 +375,31 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1587748372963" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1587804384087" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ik-analyzer-master" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\myjavacode\myblog\src\main\resources\templates" />
-      <recent name="D:\myjavacode\myblog\src\main\resources\templates\admin" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\myjavacode\myblog\src\main\resources\IKAnalyzer" />
+      <recent name="D:\myjavacode\myblog\src\main\resources" />
+      <recent name="D:\myjavacode\重要备份code\myblog\src\main\resources\templates" />
+      <recent name="D:\myjavacode\重要备份code\myblog\src\main\java\cn\ftf\myblog" />
+      <recent name="D:\myjavacode\重要备份code\myblog\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="cn.ftf.myblog.web" />
       <recent name="cn.ftf.myblog.entity" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\myjavacode\重要备份code\myblog\src\main\resources\templates" />
-      <recent name="D:\myjavacode\重要备份code\myblog\src\main\java\cn\ftf\myblog" />
-      <recent name="D:\myjavacode\重要备份code\myblog\src\main\resources" />
-      <recent name="D:\myjavacode\myblog\src\main\resources" />
-      <recent name="D:\myjavacode\myblog\src" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\myjavacode\myblog\src\main\resources\templates" />
+      <recent name="D:\myjavacode\myblog\src\main\resources\templates\admin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -468,6 +521,8 @@
       <workItem from="1583390818382" duration="606000" />
       <workItem from="1587743510073" duration="3020000" />
       <workItem from="1587746722859" duration="1802000" />
+      <workItem from="1587776964941" duration="3932000" />
+      <workItem from="1587780965758" duration="6278000" />
     </task>
     <task id="LOCAL-00001" summary="异常处理优化">
       <created>1587748285729</created>
@@ -480,10 +535,19 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="289869000" />
+    <option name="totallyTimeSpent" value="300813000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="97" y="-7" width="1266" height="840" extended-state="0" />
+    <frame x="62" y="33" width="1550" height="839" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
@@ -492,24 +556,24 @@
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info id="Web" order="5" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.3112583" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.2600536" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Spring" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.3289855" />
+      <window_info anchor="bottom" id="Spring" order="0" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="2" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="4" weight="0.32485875" />
-      <window_info anchor="bottom" id="Java Enterprise" order="5" />
+      <window_info anchor="bottom" id="Messages" order="4" weight="0.3243626" />
+      <window_info anchor="bottom" id="Java Enterprise" order="5" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="6" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32909605" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Message" order="8" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.41011983" />
-      <window_info anchor="bottom" id="Run" order="10" weight="0.31638417" />
+      <window_info anchor="bottom" id="Run" order="10" weight="0.2065527" />
       <window_info anchor="bottom" id="Debug" order="11" weight="0.3997175" />
       <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="14" />
-      <window_info anchor="right" id="Maven" order="0" weight="0.1592775" />
+      <window_info anchor="bottom" id="TODO" order="14" weight="0.3286119" />
+      <window_info anchor="right" id="Maven" order="0" visible="true" weight="0.09115282" />
       <window_info anchor="right" id="Palette" order="1" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
       <window_info anchor="right" id="Database" order="3" />
@@ -549,6 +613,20 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -556,71 +634,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="异常处理优化" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/pojo/Type.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/pojo/Comment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/pojo/Blog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="954">
-          <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/pojo/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
-          <folding>
-            <element signature="e#1004#1005#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/hander/ControllerExceptionHander.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/entity/FirstPageBlog.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/entity/SearchBlog.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/entity/BlogAndTag.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/entity/ShowBlog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/entity/RequestLog.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/dao/BlogDao.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/dao/TypeDao.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/dao/TagDao.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/dao/CommentDao.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -667,13 +680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/BlogServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -782,10 +788,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/logback-spring.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/admin/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
+        <state relative-caret-position="270">
+          <caret line="28" column="53" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -796,10 +802,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/others/devlog.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="47" column="56" selection-start-line="47" selection-start-column="56" selection-end-line="47" selection-end-column="56" />
+        <state relative-caret-position="108">
+          <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -812,29 +823,110 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/interceptor/WebConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        <state relative-caret-position="126">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/entity/FirstPageBlog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-20">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/TagMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/TypeMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/CommentMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/BlogMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="172" selection-start-line="172" selection-end-line="172" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/github/pagehelper/pagehelper/5.1.2/pagehelper-5.1.2.jar!/com/github/pagehelper/PageInfo.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-270">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10">
+          <caret line="47" column="81" lean-forward="true" selection-start-line="47" selection-start-column="81" selection-end-line="47" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/BlogServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myblog.log" />
+    <entry file="file://$PROJECT_DIR$/HELP.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/MyblogApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        <state relative-caret-position="108">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="120" column="21" selection-start-line="120" selection-start-column="21" selection-end-line="120" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+        <state relative-caret-position="262">
+          <caret line="26" column="36" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/admin/LoginController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/IKAnalyzer/stopword.dic">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/IKAnalyzer/hotword.dic">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/IKAnalyzer.cfg.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="20" column="28" lean-forward="true" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+        <state relative-caret-position="180">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/logback-spring.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-62">
+          <caret line="81" column="44" selection-start-line="81" selection-start-column="44" selection-end-line="81" selection-end-column="44" />
         </state>
       </provider>
     </entry>
