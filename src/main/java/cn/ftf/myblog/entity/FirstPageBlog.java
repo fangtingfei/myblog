@@ -13,6 +13,31 @@ public class FirstPageBlog {
     private Date createTime;
     private String description;
 
+    @Override
+    public String toString() {
+        return "FirstPageBlog{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", firstPicture='" + firstPicture + '\'' +
+                ", views=" + views +
+                ", createTime=" + createTime +
+                ", description='" + description + '\'' +
+                ", createTimeforSearch='" + createTimeforSearch + '\'' +
+                ", typeName='" + typeName + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", avatar='" + avatar + '\'' +
+                '}';
+    }
+
+    public String getCreateTimeforSearch() {
+        return createTimeforSearch;
+    }
+
+    public void setCreateTimeforSearch(String createTimeforSearch) {
+        this.createTimeforSearch = createTimeforSearch;
+    }
+
+    private String createTimeforSearch;
     //Type
     private String typeName;
 
@@ -92,18 +117,5 @@ public class FirstPageBlog {
         this.avatar = avatar;
     }
 
-    @Override
-    public String toString() {
-        return "FirstPageBlog{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", firstPicture='" + firstPicture + '\'' +
-                ", views=" + views +
-                ", updateTime=" + createTime +
-                ", description='" + description + '\'' +
-                ", typeName='" + typeName + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", avatar='" + avatar + '\'' +
-                '}';
-    }
+
 }

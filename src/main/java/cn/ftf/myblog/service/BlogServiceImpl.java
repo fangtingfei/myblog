@@ -27,7 +27,6 @@ public class BlogServiceImpl implements BlogService {
         return arrList;
     }
 
-
     @Override
     public ShowBlog getBlogById(Integer id) {
         return blogDao.getBlogById(id);
@@ -110,6 +109,7 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public List<FirstPageBlog> getByTypeId(Integer typeId) {
+
         return blogDao.getByTypeId(typeId);
     }
 
@@ -118,5 +118,10 @@ public class BlogServiceImpl implements BlogService {
         return blogDao.getByTagId(tagId);
     }
 
+    @Override
+    public List<Blog> getAllPojoBlog() {
+        List<Blog> allPojoBlog=blogDao.getAllPojoBlog();
+        return allPojoBlog;
+    }
 
 }

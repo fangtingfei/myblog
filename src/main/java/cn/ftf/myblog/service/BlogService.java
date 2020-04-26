@@ -7,6 +7,7 @@ import cn.ftf.myblog.pojo.Blog;
 import java.util.List;
 
 public interface BlogService {
+    List<Blog> getAllPojoBlog();
 
     ShowBlog getBlogById(Integer id);
 

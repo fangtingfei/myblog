@@ -26,15 +26,17 @@
             <a th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>&nbsp&nbsp标签</a>
             <a th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="info icon"></i>&nbsp关于我</a>
             <div class="right m-item item m-mobile-hide">
+                <form name="search" action="/myblog/search" method="get" target="_blank">
                 <div class="ui icon inverted input m-margin-tb-tiny">
-                    <input type="text" placeholder="敬请期待...">
-                    <i class="search link icon"></i>
+                    <input name="queryString" type="text" placeholder="Lucene全文检索..." value="">
+                    <i class="search link icon" onclick="document.forms['search'].submit()"></i>
                 </div>
+            </form>
             </div>
             <div><a href="#" th:href="@{/admin/}" class="m-right-top mini"  style="color: #4c4f52;font-size: 5px">博主空间&nbsp&nbsp&nbsp</a> </div>
         </div>
     </div>
-    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+    <a href="" class="ui menu toggle black icon button m-right-top m-mobile-show">
         <i class="sidebar icon"></i>
     </a>
 </nav>

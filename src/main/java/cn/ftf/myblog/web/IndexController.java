@@ -46,6 +46,7 @@ public class IndexController {
         List<Tag> tags=new ArrayList<>();
         List<Type> types=new ArrayList<>();
         List<FirstPageBlog> allFirstPageBlog = blogService.getAllFirstPageBlog();
+        PageInfo<FirstPageBlog> pageInfo = new PageInfo<>(allFirstPageBlog);
         List<Type> allType = typeService.findAll().subList(0,5);
         for(Type type:allType){
             types.add(type);
@@ -56,7 +57,6 @@ public class IndexController {
             tags.add(tag);
         }
         List<RecommendBlog> recommendedBlog = blogService.getRecommendedBlog();
-        PageInfo<FirstPageBlog> pageInfo = new PageInfo<>(allFirstPageBlog);
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("tags", tags);
         model.addAttribute("types", types);

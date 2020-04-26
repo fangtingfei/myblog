@@ -171,5 +171,8 @@
         order by b.createTime desc
     </select>
 
+    <select id="getAllPojoBlog" resultType="cn.ftf.myblog.pojo.Blog">
+        select b.id,b.title,b.content,b.views,b.createTime,b.description,b.firstImg firstPicture from t_blog b;
+    </select>
 
 </mapper>

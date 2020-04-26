@@ -9,6 +9,8 @@ import java.util.List;
 @Mapper
 public interface BlogDao {
 
+    List<Blog> getAllPojoBlog();
+
     ShowBlog getBlogById(Integer id);
 
     List<BlogQuery> getAllBlogQuery();

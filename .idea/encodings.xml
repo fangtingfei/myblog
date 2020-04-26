@@ -2,61 +2,37 @@
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8" addBOMForNewFiles="with NO BOM">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/dao/CommentDao.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/dao/CommentDao.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/pojo/Blog.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/pojo/Blog.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/pojo/Comment.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/pojo/Comment.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/BlogService.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/BlogService.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/BlogServiceImpl.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/BlogServiceImpl.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/CommentService.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/CommentService.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/CommentServiceImpl.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/CommentServiceImpl.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/utils/MarkdownUtils.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/AboutController.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/AboutController.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/CommentController.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/CommentController.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/TagController.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/TagController.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/TypeController.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/TypeController.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/admin/BlogController.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/admin/BlogController.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/BlogMapper.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/BlogMapper.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/CommentMapper.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/CommentMapper.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/static/css" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/static/css" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/static/images" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/static/images" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/dao/CommentDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/pojo/Blog.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/pojo/Comment.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/BlogService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/BlogServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/CommentService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/CommentServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/utils/MarkdownUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/AboutController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/CommentController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/TagController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/TypeController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/admin/BlogController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/BlogMapper.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/CommentMapper.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/static/css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/static/images" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/images/微信公众号.jpg" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/images/微信名片.png" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/static/js" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/static/js" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/static/lib" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/static/lib" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/templates/about.html" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/templates/admin" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/templates/admin" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/templates/admin/BlogController.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/templates/admin/_fragments.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/static/js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/static/lib" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/about.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/admin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/admin/_fragments.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/admin/login.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/templates/admin/login.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/templates/archives.html" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/templates/blog.html" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/templates/blog.html" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/templates/index.html" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/templates/index.html" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/templates/search.html" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/templates/tags.html" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/templates/types.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/archives.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/blog.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/index.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/search.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/tags.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/types.html" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
