@@ -17,13 +17,9 @@ public class Comment {
 
     private Integer blogId;
     private Integer parentCommentId;
-    private String parentNickname;
-
     //回复评论
     private List<Comment> replyComments = new ArrayList<>();
     private Comment parentComment;
-
-    //private DetailedBlog blog;
 
     public Integer getId() {
         return id;
@@ -89,14 +85,6 @@ public class Comment {
         this.blogId = blogId;
     }
 
-    public String getParentNickname() {
-        return parentNickname;
-    }
-
-    public void setParentNickname(String parentNickname) {
-        this.parentNickname = parentNickname;
-    }
-
     public List<Comment> getReplyComments() {
         return replyComments;
     }
@@ -132,7 +120,6 @@ public class Comment {
                 ", createTime=" + createTime +
                 ", blogId=" + blogId +
                 ", parentCommentId=" + parentCommentId +
-                ", parentNickname='" + parentNickname + '\'' +
                 ", replyComments=" + replyComments +
                 ", parentComment=" + parentComment +
                 '}';

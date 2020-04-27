@@ -28,13 +28,6 @@ public class CommentController {
     @Value("${comment.avatar}")
     private String avatar;
 
-    @GetMapping("/comments/{blogId}")
-    public String comments(@PathVariable Integer blogId, Model model) {
-        List<Comment> comments = commentService.listCommentByBlogId(blogId);
-        model.addAttribute("comments", comments);
-        model.addAttribute("blog", blogService.getDetailedBlog(blogId));
-        return "blog";
-    }
 
     @PostMapping("/comments")
     public String post(Comment comment, HttpSession session) {
@@ -53,6 +46,6 @@ public class CommentController {
             comment.setParentCommentId(comment.getParentComment().getId());
         }
         commentService.saveComment(comment);
-        return "redirect:/comments/" + blogId;
+        return "redirect:/blog/" + blogId;
     }
 }

@@ -64,24 +64,11 @@ public class IndexController {
         return "index";
     }
 
-//    @GetMapping("/search")
-//    public String search(Model model,
-//                         @RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,
-//                         @RequestParam String query) {
-//        PageHelper.startPage(pageNum,20);
-//        List<FirstPageBlog> searchBlog = blogService.getSearchBlog(query);
-//        PageInfo<FirstPageBlog> pageInfo = new PageInfo<>(searchBlog);
-//        model.addAttribute("pageInfo", pageInfo);
-//        model.addAttribute("query", query);
-//        return "search";
-//    }
-
-
     @GetMapping("/blog/{id}")
     public String blog(@PathVariable Integer id, Model model) {
         DetailedBlog detailedBlog = blogService.getDetailedBlog(id);
         if(detailedBlog==null){
-            throw new NotFountException("the blog is not exist！");
+            throw new NotFountException("error:该博客不存在！");
         }
         List<Comment> comments = commentService.listCommentByBlogId(id);
         model.addAttribute("comments", comments);

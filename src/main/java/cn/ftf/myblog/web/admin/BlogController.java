@@ -58,7 +58,7 @@ public class BlogController {
     @GetMapping("/blogs/{id}/delete")
     public String delete(@PathVariable Integer id, RedirectAttributes attributes) {
         blogService.deleteBlog(id);
-        attributes.addFlashAttribute("message", "Operates successfully!");
+        attributes.addFlashAttribute("message", "删除成功!");
         return "redirect:/admin/blogs";
     }
 
@@ -83,7 +83,7 @@ public class BlogController {
         //设置blog的type
         blog.setTypeId(StringToInteger(blog.getStrType()));
         blogService.saveBlog(blog);
-        attributes.addFlashAttribute("message", "Operates successfully!");
+        attributes.addFlashAttribute("message", "博客发布成功！");
         return "redirect:/admin/blogs";
     }
 
@@ -98,7 +98,7 @@ public class BlogController {
         PageInfo<BlogQuery> pageInfo = new PageInfo<>(blogBySearch);
         model.addAttribute("pageInfo", pageInfo);
         setTypeAndTag(model);
-        model.addAttribute("message", "Operate successed!");
+        model.addAttribute("message", "查询成功!");
         return "admin/blogs";
     }
 
@@ -119,7 +119,7 @@ public class BlogController {
     @PostMapping("/blogs/update")
     public String editPost(ShowBlog showBlog, RedirectAttributes attributes) {
         blogService.updateBlog(showBlog);
-        attributes.addFlashAttribute("message","Operates successfully!");
+        attributes.addFlashAttribute("message","更新成功!");
         return "redirect:/admin/blogs";
     }
 }
