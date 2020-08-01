@@ -32,6 +32,8 @@ public interface BlogService {
 
     DetailedBlog getDetailedBlog(Integer id);
 
+    String getTagIds(Integer id);
+
     //根据TypeId获取博客列表，在分类页进行的操作
     List<FirstPageBlog> getByTypeId(Integer typeId);
 

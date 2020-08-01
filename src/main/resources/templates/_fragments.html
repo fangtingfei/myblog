@@ -19,12 +19,13 @@
 <nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
-            <h2 class="ui teal header item">房廷飞_Blog</h2>
+            <h2 style="float: left" class="ui teal header item">CodeFlyer</h2>
             <!--<img class="ui teal header item" src="../static/images/myblogminilogo.png" th:src="@{/images/myblogminilogo.png}">-->
             <a th:href="@{/}" class="m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="home icon"></i>&nbsp首页</a>
             <a th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i>&nbsp分类</a>
             <a th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>&nbsp&nbsp标签</a>
-            <a th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="info icon"></i>&nbsp关于我</a>
+            <a th:href="@{/getDiary}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="calendar alternate icon"></i>&nbsp日志/备忘</a>
+            <a th:href="@{/admin/file/upload}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="save icon"></i>文件系统</a>
             <div class="right m-item item m-mobile-hide">
                 <form name="search" action="/myblog/search" method="get" target="_blank">
                 <div class="ui icon inverted input m-margin-tb-tiny">
@@ -48,17 +49,17 @@
                 <div class="three wide column">
                     <div class="ui inverted link list">
                         <div class="item">
-                            <img src="../static/images/wechat.jpg" th:src="@{/images/微信公众号.jpg}" class="ui rounded image" alt="" style="width: 110px">
+                            <img src="../static/images/wechat.jpg" th:src="@{/images/wechatOfficial.jpg}" class="ui rounded image" alt="" style="width: 110px">
                         </div>
                     </div>
                 </div>
                 <div class="three wide column">
                     <h4 class="ui inverted header m-text-thin m-text-spaced " >关注我</h4>
                     <div class="ui inverted link list">
-                        <a href="#" class="item m-text-thin">-----敬请期待-----</a>
-                        <a href="#" class="item m-text-thin">-----敬请期待-----</a>
-                        <a href="#" class="item m-text-thin">-----敬请期待-----</a>
-                        <a href="#" class="item m-text-thin">-----敬请期待-----</a>
+                        <!--<a href="#" class="item m-text-thin">-&#45;&#45;&#45;&#45;敬请期待-&#45;&#45;&#45;&#45;</a>-->
+                        <!--<a href="#" class="item m-text-thin">-&#45;&#45;&#45;&#45;敬请期待-&#45;&#45;&#45;&#45;</a>-->
+                        <!--<a href="#" class="item m-text-thin">-&#45;&#45;&#45;&#45;敬请期待-&#45;&#45;&#45;&#45;</a>-->
+                        <!--<a href="#" class="item m-text-thin">-&#45;&#45;&#45;&#45;敬请期待-&#45;&#45;&#45;&#45;</a>-->
                     </div>
                 </div>
                 <div class="three wide column">

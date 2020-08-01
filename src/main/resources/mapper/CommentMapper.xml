@@ -5,12 +5,12 @@
 <mapper namespace="cn.ftf.myblog.dao.CommentDao">
 
     <insert id="saveComment" parameterType="cn.ftf.myblog.pojo.Comment">
-        insert into t_comment (nickname,email,content,avatar,create_time,blog_id,parent_comment_id)
-        values (#{nickname},#{email},#{content},#{avatar},#{createTime},#{blogId},#{parentCommentId});
+        insert into t_comment (nickname,email,content,avatar,create_time,blog_id,parent_comment_id,ip,adminComment)
+        values (#{nickname},#{email},#{content},#{avatar},#{createTime},#{blogId},#{parentCommentId},#{ip},#{adminComment});
     </insert>
 
     <select id="findByBlogIdParentIdNull" resultType="cn.ftf.myblog.pojo.Comment">
-        select c.id,c.nickname,c.email,c.content,c.avatar,c.create_time createTime,c.blog_id blogId,c.parent_comment_id parentCommentId
+        select c.adminComment, c.ip, c.id,c.nickname,c.email,c.content,c.avatar,c.create_time createTime,c.blog_id blogId,c.parent_comment_id parentCommentId
         from t_comment c
         where c.blog_id = #{blogId} and c.parent_comment_id = #{blogParentId}
         order by c.create_time desc

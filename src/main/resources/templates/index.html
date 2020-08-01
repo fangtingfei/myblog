@@ -33,7 +33,7 @@
                 <!--content-->
                 <div class="ui attached  segment">
 
-                    <div class="ui padded vertical segment m-padded-tb-small" th:each="blog:${pageInfo.list}">
+                    <div class="ui padded vertical segment m-padded-tb" th:each="blog:${pageInfo.list}">
                             <div class="ui mobile reversed stackable grid">
                             <div class="eleven wide column">
                                 <h3 class="ui header" ><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black" th:text="${blog.title}">你真的理解什么是财富自由吗?</a></h3>
@@ -67,8 +67,6 @@
 
                         </div>
                     </div>
-
-
                 </div>
 
                 <!--footer-->
@@ -141,7 +139,7 @@
                 <!--二维码-->
                 <h4 class="ui horizontal divider header m-margin-top-large">扫码添加我</h4>
                 <div class="ui centered card" style="width: 11em">
-                    <img th:src="@{/images/微信名片.png}" alt="" class="ui rounded image" >
+                    <img th:src="@{/images/wechatAvatar.png}" alt="" class="ui rounded image" >
                 </div>
             </div>
 

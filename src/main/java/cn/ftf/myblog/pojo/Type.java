@@ -4,7 +4,6 @@ public class Type {
     private Integer id;
     private String name;
     private Integer blogNum;
-    public Type(){}
 
     public Type(Integer id, String name) {
         this.id = id;

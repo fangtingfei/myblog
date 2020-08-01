@@ -10,12 +10,15 @@
         <association property="blogNum" javaType="int" column="id" select="cn.ftf.myblog.dao.TypeDao.blogNum"></association>
     </resultMap>
     <select id="findById" parameterType="int" resultType="cn.ftf.myblog.pojo.Type">
-        select * from t_user where id = #{id}
+        select * from t_type where id = #{id}
     </select>
     <insert id="addType" parameterType="String">
         insert into t_type(name)values (#{name})
     </insert>
     <select id="findAll" resultMap="findAllTypeMap">
+        select * from t_type
+    </select>
+    <select id="findAll_1" resultType="cn.ftf.myblog.pojo.Type">
         select * from t_type
     </select>
     <delete id="delete" parameterType="int">

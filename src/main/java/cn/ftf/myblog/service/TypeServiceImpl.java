@@ -30,11 +30,9 @@ public class TypeServiceImpl implements TypeService {
     public PageInfo pageQuery(QueryPageBean queryPageBean) {
         Integer currentPage = queryPageBean.getCurrentPage();
         Integer pageSize = queryPageBean.getPageSize();
-        System.out.println(currentPage);
-        System.out.println(pageSize);
         //基于mybstis框架提供的分页助手来分页
         PageHelper.startPage(currentPage, pageSize);//这条指令的原理是LocalThread本地线程，这条语句一定跟下面的查询指令，中间不能有其他的内容
-        List<Type> list=typeDao.findAll();
+        List<Type> list=typeDao.findAll_1();
         PageInfo<Type> pageInfo=new PageInfo<>(list);
         return pageInfo;
     }
@@ -53,6 +51,11 @@ public class TypeServiceImpl implements TypeService {
     @Override
     public List<Type> findAll() {
         return typeDao.findAll();
+    }
+
+    @Override
+    public List<Type> findAll_1() {
+        return typeDao.findAll_1();
     }
 
     @Override

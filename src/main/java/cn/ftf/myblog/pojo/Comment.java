@@ -21,6 +21,26 @@ public class Comment {
     private List<Comment> replyComments = new ArrayList<>();
     private Comment parentComment;
 
+    private boolean adminComment;
+
+    public boolean isAdminComment() {
+        return adminComment;
+    }
+
+    public void setAdminComment(boolean adminComment) {
+        this.adminComment = adminComment;
+    }
+
+    private String ip;
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -101,14 +121,6 @@ public class Comment {
         this.parentComment = parentComment;
     }
 
-//    public DetailedBlog getBlog() {
-//        return blog;
-//    }
-//
-//    public void setBlog(DetailedBlog blog) {
-//        this.blog = blog;
-//    }
-
     @Override
     public String toString() {
         return "Comment{" +
@@ -122,6 +134,9 @@ public class Comment {
                 ", parentCommentId=" + parentCommentId +
                 ", replyComments=" + replyComments +
                 ", parentComment=" + parentComment +
+                ", adminComment=" + adminComment +
+                ", ip='" + ip + '\'' +
                 '}';
     }
 }
+

@@ -14,6 +14,9 @@ public class DetailedBlog {
     private String flag;
     private String title;
     private String content;
+    private String type;
+    private Integer type_id;
+    private Integer commentCount;
 
     private Integer views;
     private Date createTime;
@@ -129,6 +132,30 @@ public class DetailedBlog {
         this.tags = tags;
     }
 
+    public Integer getType_id() {
+        return type_id;
+    }
+
+    public void setType_id(Integer type_id) {
+        this.type_id = type_id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Integer getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(Integer commentCount) {
+        this.commentCount = commentCount;
+    }
+
     @Override
     public String toString() {
         return "DetailedBlog{" +
@@ -137,8 +164,11 @@ public class DetailedBlog {
                 ", flag='" + flag + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
+                ", type='" + type + '\'' +
+                ", type_id=" + type_id +
+                ", commentCount=" + commentCount +
                 ", views=" + views +
-                ", updateTime=" + createTime +
+                ", createTime=" + createTime +
                 ", commentabled=" + commentabled +
                 ", shareStatement=" + shareStatement +
                 ", appreciation=" + appreciation +

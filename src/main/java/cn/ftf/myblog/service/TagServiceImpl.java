@@ -63,7 +63,7 @@ public class TagServiceImpl implements TagService {
         Integer pageSize = queryPageBean.getPageSize();
         //基于mybstis框架提供的分页助手来分页
         PageHelper.startPage(currentPage,pageSize);  //这条指令的原理是LocalThread本地线程，这条语句一定跟下面的查询指令，中间不能有其他的内容
-        List<Tag> lists = tagDao.findAll();
+        List<Tag> lists = tagDao.findAll_1();
         PageInfo<Tag> pageInfo=new PageInfo(lists);
         for(Tag list:lists){
             list.toString();
@@ -74,6 +74,11 @@ public class TagServiceImpl implements TagService {
     @Override
     public List<Tag> findAll() {
         return tagDao.findAll();
+    }
+
+    @Override
+    public List<Tag> findAll_1() {
+        return tagDao.findAll_1();
     }
 
     @Override

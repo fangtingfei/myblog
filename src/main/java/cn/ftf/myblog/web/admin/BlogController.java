@@ -10,6 +10,7 @@ import cn.ftf.myblog.pojo.User;
 import cn.ftf.myblog.service.BlogService;
 import cn.ftf.myblog.service.TagService;
 import cn.ftf.myblog.service.TypeService;
+import cn.ftf.myblog.utils.FirImgUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import java.awt.*;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.List;
 
 @Controller
@@ -39,8 +45,8 @@ public class BlogController {
     }
 
     public void setTypeAndTag(Model model) {
-        model.addAttribute("types", typeService.findAll());
-        model.addAttribute("tags", tagService.findAll());
+        model.addAttribute("types", typeService.findAll_1());
+        model.addAttribute("tags", tagService.findAll_1());
     }
 
     //显示
@@ -49,8 +55,9 @@ public class BlogController {
         PageHelper.startPage(pageNum, 10);
         List<BlogQuery> allBlog = blogService.getAllBlog();
         PageInfo<BlogQuery> pageInfo = new PageInfo<>(allBlog);
+        List<Type> types = typeService.findAll_1();
         model.addAttribute("pageInfo", pageInfo);
-        setTypeAndTag(model);
+        model.addAttribute("types",types);
         return "admin/blogs";
     }
 
@@ -66,12 +73,13 @@ public class BlogController {
     @GetMapping("/blogs/input")
     public String toAdd(Model model) {
         setTypeAndTag(model);
+        model.addAttribute("firImg","");
         return "admin/blogs-input";
     }
 
     //新增
     @PostMapping("/blogs")
-    public String add(Blog blog, RedirectAttributes attributes, HttpSession session) {
+    public String add(Blog blog, RedirectAttributes attributes, HttpSession session) throws Exception {
         User user=null;
         if(session.getAttribute("user")!=null){
             user =(User) session.getAttribute("user");
@@ -79,6 +87,16 @@ public class BlogController {
         }else {
             System.out.println("Error:No user message！");
         }
+        if(blog.getFirstPicture()=="null"){
+            blog.setFirstPicture("");
+        }
+        if(blog.getFirstPicture()==""){
+//            OutputStream outputStream=new ByteArrayOutputStream();
+//            FirImgUtils.createImage(blog.getTitle(), new Font("宋体", Font.BOLD, 60), outputStream, 800, 400);
+//            //下面要调用文件微服务
+            blog.setFirstPicture("文件微服务暂不可用，正在部署完善，敬请期待！");
+        }
+
         blog.setUserId(user.getId());
         //设置blog的type
         blog.setTypeId(StringToInteger(blog.getStrType()));
@@ -106,10 +124,11 @@ public class BlogController {
     @GetMapping("/blogs/{id}/input")
     public String toUpdate(@PathVariable Integer id,Model model) {
         ShowBlog blogById = blogService.getBlogById(id);
+        blogById.setTagIds(blogService.getTagIds(id));
         System.out.println("-----------------------------");
         System.out.println(blogById);
-        List<Type> allType = typeService.findAll();
-        List<Tag> allTag = tagService.findAll();
+        List<Type> allType = typeService.findAll_1();
+        List<Tag> allTag = tagService.findAll_1();
         model.addAttribute("blog", blogById);
         model.addAttribute("types", allType);
         model.addAttribute("tags", allTag);

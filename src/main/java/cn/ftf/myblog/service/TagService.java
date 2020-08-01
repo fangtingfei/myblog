@@ -25,5 +25,7 @@ public interface TagService {
 
     List<Tag> findAll();
 
+    List<Tag> findAll_1();
+
     int blogNum(Integer id);
 }

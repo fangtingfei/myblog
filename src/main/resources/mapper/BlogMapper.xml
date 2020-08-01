@@ -32,7 +32,7 @@
     <!--resultMap-->
 
     <select id="getAllBlogQuery" resultMap="blog">
-        select b.id,b.title,b.createTime,b.recommend,b.type_id,t.id,t.name from t_blog b left outer join
+        select b.id,b.title,b.createTime,b.recommend,b.type_id,t.id,t.name from t_blog b left join
         t_type t on b.type_id = t.id order by b.createTime desc
     </select>
 
@@ -44,6 +44,9 @@
         delete from t_blog_tags where blog_id = #{blogId}
     </delete>
 
+    <select id="getTagIds" parameterType="int" resultType="int">
+        select tag_id from t_blog_tags where blog_id=#{id}
+    </select>
 
     <insert id="saveBlog" parameterType="cn.ftf.myblog.pojo.Blog">
         <selectKey order="AFTER" resultType="java.lang.Integer" keyProperty="id">
@@ -138,7 +141,7 @@
     </resultMap>
 
     <select id="getDetailedBlog" resultMap="detailedBlog" parameterType="int">
-        SELECT b.id bid,b.firstImg,b.flag,b.title,b.content,b.views,b.createTime,b.commentAble,b.shareStatement,b.appreciation, u.nickname,u.avatar
+        SELECT b.id bid,b.firstImg,b.flag,b.title,b.content,b.views,b.createTime,b.commentAble,b.shareStatement,b.appreciation,b.type_id ,u.nickname,u.avatar
         FROM t_blog b,t_user u
         WHERE b.user_id = u.id AND  b.id = #{id}
     </select>
@@ -160,6 +163,10 @@
 
     <select id="getAllPojoBlog" resultType="cn.ftf.myblog.pojo.Blog">
         select b.id,b.title,b.content,b.views,b.createTime,b.description,b.firstImg firstPicture from t_blog b;
+    </select>
+
+    <select id="getCommentCount" resultType="Integer">
+        select count(*) from t_comment where blog_id=#{id}
     </select>
 
 </mapper>

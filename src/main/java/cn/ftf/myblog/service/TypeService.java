@@ -13,6 +13,7 @@ public interface TypeService {
     Type updateType(Integer id, Type type);
     void delete(Integer id);
     List<Type> findAll();
+    List<Type> findAll_1();
     int updateType(Type type);
     int blogNum(Integer id);
 }

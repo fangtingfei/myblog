@@ -9,11 +9,15 @@
 <!--导航-->
 <nav th:replace="admin/_fragments::menu(0)"></nav>
 
-<div class="m-container-small m-padded-tb-big">
-    <div class="ui container">
-        <div ui success large message>
-            <h1>Hi,</h1>
-            <span th:text="${session.user.nickName}">用户昵称</span><span>，欢迎登陆！</span>
+<br>
+<br>
+<br>
+
+<div class="m-container-small m-padded-tb-massive">
+    <div class="ui success message m-padded-tb-huge" >
+        <div class="ui contianer">
+            <h2 style="font-weight: bolder">Hi,</h2>
+            <span style="font-size: large;color: #0a001f;font-weight: bolder" th:text="${session.user.nickName}">用户昵称</span><span>，欢迎登陆！</span>
         </div>
     </div>
 </div>

@@ -1,6 +1,5 @@
 package cn.ftf.myblog.web;
 
-
 import cn.ftf.myblog.NotFountException;
 import cn.ftf.myblog.entity.DetailedBlog;
 import cn.ftf.myblog.entity.FirstPageBlog;
@@ -24,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Controller
 public class IndexController {
 
@@ -42,17 +40,17 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(Model model, @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum) {
-        PageHelper.startPage(pageNum, 6);  //第几页，一页多少个数据，其紧跟着的第一条查询指令会被分页，原理是ThreadLocal本地线程变量
+        PageHelper.startPage(pageNum, 8);  //第几页，一页多少个数据，其紧跟着的第一条查询指令会被分页，原理是ThreadLocal本地线程变量
         List<Tag> tags=new ArrayList<>();
         List<Type> types=new ArrayList<>();
         List<FirstPageBlog> allFirstPageBlog = blogService.getAllFirstPageBlog();
         PageInfo<FirstPageBlog> pageInfo = new PageInfo<>(allFirstPageBlog);
-        List<Type> allType = typeService.findAll().subList(0,5);
+        List<Type> allType = typeService.findAll();
         for(Type type:allType){
             types.add(type);
         }
 
-        List<Tag> allTag = tagService.getAllTag().subList(0,6);
+        List<Tag> allTag = tagService.getAllTag();
         for(Tag tag:allTag){
             tags.add(tag);
         }

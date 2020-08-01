@@ -10,6 +10,7 @@ public interface TypeDao {
     Type findById(Integer id);
     void addType(String name);
     List<Type> findAll();
+    List<Type> findAll_1();
     void delete(Integer id);
     Integer updateType(Type type);
     Integer blogNum(Integer id);

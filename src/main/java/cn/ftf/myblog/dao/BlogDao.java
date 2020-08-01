@@ -27,6 +27,10 @@ public interface BlogDao {
 
     void viewOne(Integer id);
 
+    List<Integer> getTagIds(Integer id);
+
+    Integer getCommentCount(Integer id);
+
     List<BlogQuery> searchByTitleOrTypeOrRecommend(SearchBlog searchBlog);
 
     List<FirstPageBlog> getFirstPageBlog();

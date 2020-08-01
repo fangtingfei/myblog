@@ -2,6 +2,7 @@ package cn.ftf.myblog.service;
 
 
 import cn.ftf.myblog.dao.BlogDao;
+import cn.ftf.myblog.dao.TypeDao;
 import cn.ftf.myblog.entity.*;
 import cn.ftf.myblog.pojo.Blog;
 import cn.ftf.myblog.utils.MarkdownUtils;
@@ -17,6 +18,9 @@ public class BlogServiceImpl implements BlogService {
 
     @Autowired
     private BlogDao blogDao;
+
+    @Autowired
+    private TypeDao typeDao;
 
     public List<Integer> StringListToList(String str1){
         List<Integer> arrList=new ArrayList<>();
@@ -99,12 +103,25 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public DetailedBlog getDetailedBlog(Integer id) {
         DetailedBlog detailedBlog = blogDao.getDetailedBlog(id);
+        Integer type_id = detailedBlog.getType_id();
+        detailedBlog.setType(typeDao.findById(type_id).getName());
+        detailedBlog.setCommentCount(blogDao.getCommentCount(id));
         if(detailedBlog!=null){
             blogDao.viewOne(id);
             String content = detailedBlog.getContent();
             detailedBlog.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
         }
         return detailedBlog;
+    }
+
+    @Override
+    public String getTagIds(Integer id) {
+        StringBuffer buffer=new StringBuffer();
+        List<Integer> list=blogDao.getTagIds(id);
+        for(Integer tagid:list){
+            buffer.append(String.valueOf(tagid) + ",");
+        }
+        return buffer.toString();
     }
 
     @Override

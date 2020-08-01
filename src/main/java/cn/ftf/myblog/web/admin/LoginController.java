@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -21,7 +22,10 @@ public class LoginController {
     private UserDao userDao;
 
     @RequestMapping("/")
-    public String toLogin(){
+    public String toLogin(HttpServletRequest request){
+        if(request.getSession().getAttribute("user")!=null) {
+            return "admin/index";
+        }
         return "admin/login";
     }
     @RequestMapping("/login")

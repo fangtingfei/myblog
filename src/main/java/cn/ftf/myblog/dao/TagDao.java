@@ -12,5 +12,6 @@ public interface TagDao {
     Tag getById(Integer id);
     Tag getByName(String name);
     List<Tag> findAll();
+    List<Tag> findAll_1();
     int blogNum(Integer id);
 }
