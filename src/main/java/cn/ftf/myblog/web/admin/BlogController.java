@@ -13,18 +13,23 @@ import cn.ftf.myblog.service.TypeService;
 import cn.ftf.myblog.utils.FirImgUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.jta.WebSphereUowTransactionManager;
 import org.springframework.ui.Model;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import java.awt.*;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.List;
 
 @Controller
@@ -39,6 +44,9 @@ public class BlogController {
 
     @Autowired
     private TagService tagService;
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     public Integer StringToInteger(String str){
         return Integer.parseInt(str);
@@ -90,13 +98,61 @@ public class BlogController {
         if(blog.getFirstPicture()=="null"){
             blog.setFirstPicture("");
         }
-        if(blog.getFirstPicture()==""){
-//            OutputStream outputStream=new ByteArrayOutputStream();
-//            FirImgUtils.createImage(blog.getTitle(), new Font("宋体", Font.BOLD, 60), outputStream, 800, 400);
-//            //下面要调用文件微服务
-            blog.setFirstPicture("文件微服务暂不可用，正在部署完善，敬请期待！");
+        if(blog.getFirstPicture()=="") {
+            File fileName=new File("D:\\test\\"+blog.getTitle()+".png");
+            File file = FirImgUtils.createImage(blog.getTitle(), new Font("宋体", Font.BOLD, 60), fileName, 800, 400);
+            HttpHeaders headers = new HttpHeaders();
+            //设置提交方式都是表单提交
+            headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+            //设置表单信息
+            MultiValueMap<String, Object> params = new LinkedMultiValueMap<>();
+            params.add("file", new FileSystemResource(file));
+            HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(params, headers);
+            String imgUrl = restTemplate.postForObject(
+                    "http://127.0.0.1:18084/upload/file", requestEntity, String.class);
+            //            ByteArrayOutputStream baos=new ByteArrayOutputStream();
+//            baos=(ByteArrayOutputStream) imgOutputStream;
+//            System.out.println("---------->"+baos.size());
+//            ByteArrayInputStream in = new ByteArrayInputStream(baos.toByteArray());
+//
+////            ByteArrayInputStream swapInputStream=new ByteArrayInputStream(baos.toByteArray());
+//////            try{
+////                InputStreamResource fileResource = new InputStreamResource(swapInputStream);
+////                MultiValueMap<String,Object>  dataMap= new LinkedMultiValueMap();
+////                dataMap.add("filestream", fileResource);// 添加文件到表单
+//////                dataMap.add("filename", blog.getTitle());// 添加文件到表单
+////                HttpHeaders requestHeaders = new HttpHeaders();//设置请求头
+////                requestHeaders.setContentType(MediaType.MULTIPART_FORM_DATA);
+////                HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity(dataMap, requestHeaders);
+//////                restTemplate.exchange("http://127.0.0.1:18084/upload/filestream", HttpMethod.POST, requestEntity, String.class);
+////                restTemplate.postForObject("http://127.0.0.1:18084/upload/filestream",requestEntity,String.class);
+//////                ResponseEntity<String> entity = restTemplate.postForEntity("http://127.0.0.1:18084/upload/filestream", requestEntity, String.class);
+//////                String resImgAddress = entity.toString();
+//////                System.out.println("-------------------->"+resImgAddress);
+//////                System.out.println(dataMap.toSingleValueMap());
+//////                blog.setFirstPicture(resImgAddress);
+//////            }catch (Exception e){
+//////                System.out.println("阿里云微服务上传失败！！！");
+//////            }finally {
+//
+//            InputStreamResource resource = new InputStreamResource(in);
+//            InputStream inputStream = resource.getInputStream();
+//            MultiValueMap<String, Object> param = new LinkedMultiValueMap<>();
+//                param.add("filestream", resource);
+//                param.add("filename", blog.getTitle()+".png");
+//                String string = restTemplate.postForObject("http://127.0.0.1:18084/upload/filestream", param, String.class);
+////                restTemplate.exchange("http://127.0.0.1:18084/upload/filestream", HttpMethod.POST, requestEntity, String.class);
+////                String string=restTemplate.postForObject("http://127.0.0.1:18084/upload/filestream",requestEntity,String.class);
+//
+//                System.out.println(string);
+//
+//                outputStream.close();
+////                swapInputStream.close();
+////            }
+//        }
+            blog.setFirstPicture(imgUrl);
+            fileName.delete();
         }
-
         blog.setUserId(user.getId());
         //设置blog的type
         blog.setTypeId(StringToInteger(blog.getStrType()));
@@ -125,8 +181,6 @@ public class BlogController {
     public String toUpdate(@PathVariable Integer id,Model model) {
         ShowBlog blogById = blogService.getBlogById(id);
         blogById.setTagIds(blogService.getTagIds(id));
-        System.out.println("-----------------------------");
-        System.out.println(blogById);
         List<Type> allType = typeService.findAll_1();
         List<Tag> allTag = tagService.findAll_1();
         model.addAttribute("blog", blogById);

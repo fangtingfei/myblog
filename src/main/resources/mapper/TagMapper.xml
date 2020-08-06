@@ -32,6 +32,10 @@
         delete from t_tag where id = #{id}
     </delete>
 
+    <delete id="deleteBlogAndTag" parameterType="int">
+        delete from t_blog_tags where blog_id=#{id}
+    </delete>
+
     <update id="updateTag" parameterType="cn.ftf.myblog.pojo.Tag">
         update t_tag set name = #{name} where id = #{id};
     </update>

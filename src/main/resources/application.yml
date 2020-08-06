@@ -8,18 +8,28 @@ spring:
   thymeleaf:
     mode: HTML
     cache: false
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://39.101.191.209/myblog?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
     password: Ftf_666666
     username: root
-#  devtools:
-#    restart:
-#      enabled: true  #设置开启热部署
-#      additional-paths: src/main/java #重启目录
-#      exclude: WEB-INF/**
-#  freemarker:
-#    cache: true    #页面不加载缓存，修改即时生效(开发环境需修改为false)
+
+  redis:
+    database: 0
+    host: 39.101.191.209
+    port: 6378
+    password: Ftf_666666
+
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+      exclude: WEB-INF/**
+
+  freemarker:
+    cache: true    #页面不加载缓存，修改即时生效(开发环境需修改为false)
+
   mvc:
     favicon:
       enabled: false
@@ -27,6 +37,7 @@ spring:
     multipart:
       max-file-size: 50MB
       max-request-size: 50MB
+    
 logging:
   level:
     root: info

@@ -5,6 +5,11 @@ public class Tag {
     private String name;
     private int blogNum;
 
+    public Tag(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }

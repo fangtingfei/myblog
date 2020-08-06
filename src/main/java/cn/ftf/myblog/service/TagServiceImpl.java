@@ -3,18 +3,25 @@ package cn.ftf.myblog.service;
 import cn.ftf.myblog.dao.TagDao;
 import cn.ftf.myblog.entity.QueryPageBean;
 import cn.ftf.myblog.pojo.Tag;
+import cn.ftf.myblog.pojo.Type;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class TagServiceImpl implements TagService {
     @Autowired
     private TagDao tagDao;
+
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
 
     @Override
     public int saveTag(Tag tag) {
@@ -43,7 +50,18 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public List<Tag> getAllTag() {
-        return tagDao.findAll();
+        Set<ZSetOperations.TypedTuple<String>> tags = stringRedisTemplate.opsForZSet().reverseRangeWithScores("tag", 0, 100);
+        List<Tag> allTags=new ArrayList<>();
+        for (ZSetOperations.TypedTuple<String> tag:tags) {
+            String value = tag.getValue();
+            String[] splitValue=value.split("-");
+            Double score = tag.getScore();
+            Tag ontTag=new Tag(Integer.parseInt(splitValue[0]),splitValue[1]);
+            ontTag.setBlogNum(new Double(score).intValue());
+            allTags.add(ontTag);
+        }
+        return allTags;
+//        return tagDao.findAll();
     }
 
     @Override

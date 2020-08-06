@@ -2,6 +2,7 @@ package cn.ftf.myblog.service;
 
 
 import cn.ftf.myblog.dao.BlogDao;
+import cn.ftf.myblog.dao.TagDao;
 import cn.ftf.myblog.dao.TypeDao;
 import cn.ftf.myblog.entity.*;
 import cn.ftf.myblog.pojo.Blog;
@@ -21,6 +22,9 @@ public class BlogServiceImpl implements BlogService {
 
     @Autowired
     private TypeDao typeDao;
+
+    @Autowired
+    private TagDao tagDao;
 
     public List<Integer> StringListToList(String str1){
         List<Integer> arrList=new ArrayList<>();
@@ -61,6 +65,14 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public int updateBlog(ShowBlog showBlog) {
         showBlog.setUpdateTime(new Date());
+        tagDao.deleteBlogAndTag(showBlog.getId());
+        String tagIds = showBlog.getTagIds();
+        List<Integer> tags=StringListToList(tagIds);
+        BlogAndTag blogAndTag=null;
+        for (Integer tagId : tags) {
+            blogAndTag = new BlogAndTag(tagId,showBlog.getId());
+            blogDao.saveBlogAndTag(blogAndTag);
+        }
         return blogDao.updateBlog(showBlog);
     }
 

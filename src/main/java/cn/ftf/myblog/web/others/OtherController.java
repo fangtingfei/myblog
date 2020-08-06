@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.Date;
 import java.util.List;
 
@@ -62,6 +59,25 @@ public class OtherController {
         System.out.println(file.getSize());
         String originalFilename = file.getOriginalFilename();
         System.out.println(originalFilename);
+//        InputStream inputStream = file.getInputStream();
+//        BufferedInputStream inBuffer=new BufferedInputStream(inputStream);
+//        BufferedOutputStream outBuffer=new BufferedOutputStream(new FileOutputStream("D:\\test\\"+originalFilename));
+//        byte[] bytes=new byte[1024];
+//        while(inBuffer.read(bytes)!=-1){
+//            outBuffer.write(bytes);
+//        }
+//        inBuffer.close();
+//        outBuffer.close();
+
+
+
+
+
+
+
+
+
+
         model.addAttribute("firImg","文件系统计划部署为微服务，正在整合搭建，敬请期待！");
 //        model.addAttribute("firImg","");
         return "admin/blogs-input::firImg";

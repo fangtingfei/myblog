@@ -3,18 +3,25 @@ package cn.ftf.myblog.service;
 import cn.ftf.myblog.dao.TypeDao;
 import cn.ftf.myblog.entity.QueryPageBean;
 import cn.ftf.myblog.pojo.Type;
+import cn.ftf.myblog.utils.RedisUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class TypeServiceImpl implements TypeService {
 
     @Autowired
     private TypeDao typeDao;
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
     @Override
     public void addType(String typeName) {
         typeDao.addType(typeName);
@@ -50,7 +57,19 @@ public class TypeServiceImpl implements TypeService {
 
     @Override
     public List<Type> findAll() {
-        return typeDao.findAll();
+        Set<ZSetOperations.TypedTuple<String>> types = stringRedisTemplate.opsForZSet().reverseRangeWithScores("type", 0, 100);
+        List<Type> allTypes=new ArrayList<>();
+        for (ZSetOperations.TypedTuple<String> type:types) {
+            String value = type.getValue();
+            String[] splitValue=value.split("-");
+            Double score = type.getScore();
+            Type oneType=new Type(Integer.parseInt(splitValue[0]),splitValue[1]);
+            oneType.setBlogNum(new Double(score).intValue());
+            allTypes.add(oneType);
+        }
+
+        return allTypes;
+//        return typeDao.findAll();
     }
 
     @Override

@@ -40,25 +40,21 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(Model model, @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum) {
+        long starTime=System.currentTimeMillis();
         PageHelper.startPage(pageNum, 8);  //第几页，一页多少个数据，其紧跟着的第一条查询指令会被分页，原理是ThreadLocal本地线程变量
-        List<Tag> tags=new ArrayList<>();
-        List<Type> types=new ArrayList<>();
         List<FirstPageBlog> allFirstPageBlog = blogService.getAllFirstPageBlog();
         PageInfo<FirstPageBlog> pageInfo = new PageInfo<>(allFirstPageBlog);
         List<Type> allType = typeService.findAll();
-        for(Type type:allType){
-            types.add(type);
-        }
-
         List<Tag> allTag = tagService.getAllTag();
-        for(Tag tag:allTag){
-            tags.add(tag);
-        }
         List<RecommendBlog> recommendedBlog = blogService.getRecommendedBlog();
         model.addAttribute("pageInfo", pageInfo);
-        model.addAttribute("tags", tags);
-        model.addAttribute("types", types);
+        model.addAttribute("tags", allTag);
+        model.addAttribute("types", allType);
         model.addAttribute("recommendedBlogs", recommendedBlog);
+        long endTime=System.currentTimeMillis();
+        System.out.println("---------------------");
+        System.out.println(endTime-starTime);
+        System.out.println("---------------------");
         return "index";
     }
 
