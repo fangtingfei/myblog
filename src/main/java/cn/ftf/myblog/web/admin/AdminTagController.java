@@ -19,7 +19,7 @@ public class AdminTagController {
 
     @GetMapping("/tags")
     public String list(Model model, @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum) {
-        QueryPageBean queryPageBean=new QueryPageBean(pageNum,6,null);
+        QueryPageBean queryPageBean=new QueryPageBean(pageNum,10,null);
         PageInfo pageInfo = tagService.pageQuery(queryPageBean);
         model.addAttribute("pageInfo", pageInfo);
         return "admin/tags";
@@ -31,9 +31,8 @@ public class AdminTagController {
         return "admin/tags-input";
     }
 
-    @PostMapping("/tags/add")
+    @RequestMapping("/tags/add")
     public String add(Tag tag, RedirectAttributes attributes) {
-        System.out.println("前端传过来的表单" + tag);
         Tag tag1 = tagService.getByName(tag.getName());
         if (tag1 != null) {
             //不为空说明数据库已有
@@ -41,6 +40,7 @@ public class AdminTagController {
             return "redirect:/admin/tags/input";
         }
         tagService.saveTag(tag);
+        System.out.println(tag);
         return "redirect:/admin/tags";
     }
 
@@ -48,6 +48,13 @@ public class AdminTagController {
     public String editInput(@PathVariable Integer id, Model model) {
         model.addAttribute("tag", tagService.getById(id));
         return "admin/tags-update";
+    }
+
+    @GetMapping("/tags/update/{id}")
+    public String editPost(@PathVariable Integer id,Model model) {
+        Tag tag = tagService.getById(id);
+        model.addAttribute("tag",tag);
+        return "/admin/tags-update";
     }
 
     @PostMapping("/tags/update")

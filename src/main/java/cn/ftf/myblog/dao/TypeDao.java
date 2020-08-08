@@ -8,7 +8,8 @@ import java.util.List;
 @Mapper
 public interface TypeDao {
     Type findById(Integer id);
-    void addType(String name);
+    void addType(Type type);
+    Type findByBlogId(Integer blogId);
     List<Type> findAll();
     List<Type> findAll_1();
     void delete(Integer id);

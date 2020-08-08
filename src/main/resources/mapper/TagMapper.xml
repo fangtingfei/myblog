@@ -8,12 +8,23 @@
         <result column="name" property="name"/>
         <association property="blogNum" javaType="int" column="id" select="cn.ftf.myblog.dao.TagDao.blogNum"></association>
     </resultMap>
+
+    <!--<resultMap id="findByBlogIdMap" type="cn.ftf.myblog.pojo.Tag">-->
+        <!--<id property="id" column="tag_id"></id>-->
+        <!--<association property="name" javaType="java.lang.String" column="id" select="cn.ftf.myblog.dao.TagDao.getNameById"></association>-->
+    <!--</resultMap>-->
     <select id="getById" resultType="cn.ftf.myblog.pojo.Tag">
-        select * from t_tag where id in (select tag_id from t_blog_tag where blog_id=#{id})
+        select * from t_tag where id=#{id}
     </select>
+    <!--<select id="getNameById" parameterType="int" resultMap="java.lang.String">-->
+        <!--select name from t_tag where id=#{id}-->
+    <!--</select>-->
 
     <insert id="saveTag" parameterType="cn.ftf.myblog.pojo.Tag">
-        insert into t_tag values (#{id},#{name});
+        <selectKey order="AFTER" resultType="java.lang.Integer" keyProperty="id">
+            SELECT LAST_INSERT_ID();
+        </selectKey>
+        insert into t_tag(name)values (#{name})
     </insert>
 
     <select id="getByName" resultType="cn.ftf.myblog.pojo.Tag">
@@ -22,6 +33,10 @@
 
     <select id="findAll"  resultMap="findAllTagMap">
         select * from t_tag
+    </select>
+
+    <select id="findByBlogId" parameterType="int" resultType="cn.ftf.myblog.pojo.Tag">
+        select * from t_tag where id in (select tag_id from t_blog_tags where blog_id=#{id})
     </select>
 
     <select id="findAll_1"  resultType="cn.ftf.myblog.pojo.Tag">

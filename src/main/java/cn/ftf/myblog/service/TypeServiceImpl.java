@@ -2,6 +2,7 @@ package cn.ftf.myblog.service;
 
 import cn.ftf.myblog.dao.TypeDao;
 import cn.ftf.myblog.entity.QueryPageBean;
+import cn.ftf.myblog.pojo.Tag;
 import cn.ftf.myblog.pojo.Type;
 import cn.ftf.myblog.utils.RedisUtil;
 import com.github.pagehelper.PageHelper;
@@ -19,12 +20,16 @@ import java.util.Set;
 public class TypeServiceImpl implements TypeService {
 
     @Autowired
+    private StringRedisTemplate redisTemplate;
+
+    @Autowired
     private TypeDao typeDao;
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
     @Override
-    public void addType(String typeName) {
-        typeDao.addType(typeName);
+    public void addType(Type type) {
+        typeDao.addType(type);
+        redisTemplate.opsForZSet().add("type",String.valueOf(type.getId())+"-"+type.getName(),0);
     }
 
     @Override
@@ -44,15 +49,11 @@ public class TypeServiceImpl implements TypeService {
         return pageInfo;
     }
 
-
-    @Override
-    public Type updateType(Integer id, Type type) {
-        return null;
-    }
-
     @Override
     public void delete(Integer id) {
+        Type type = typeDao.findById(id);
         typeDao.delete(id);
+        redisTemplate.opsForZSet().remove("type",String.valueOf(type.getId())+"-"+type.getName());
     }
 
     @Override
@@ -78,13 +79,20 @@ public class TypeServiceImpl implements TypeService {
     }
 
     @Override
-    public int updateType(Type type) {
-        return typeDao.updateType(type);
+    public void updateType(Type type) {
+        Type ordType = typeDao.findById(type.getId());
+        String key=String.valueOf(ordType.getId())+"-"+ordType.getName();
+        //先查
+        Double score = stringRedisTemplate.opsForZSet().score("type", key);
+        //再删
+        stringRedisTemplate.opsForZSet().remove("type",key);
+        //再添
+        stringRedisTemplate.opsForZSet().add("type",String.valueOf(type.getId())+"-"+type.getName(),score);
+        typeDao.updateType(type);
     }
 
     @Override
     public int blogNum(Integer id) {
         return typeDao.blogNum(id);
     }
-
 }

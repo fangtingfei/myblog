@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-
 <mapper namespace="cn.ftf.myblog.dao.TypeDao" >
     <resultMap id="findAllTypeMap" type="cn.ftf.myblog.pojo.Type">
         <id column="id" property="id"></id>
@@ -12,7 +11,10 @@
     <select id="findById" parameterType="int" resultType="cn.ftf.myblog.pojo.Type">
         select * from t_type where id = #{id}
     </select>
-    <insert id="addType" parameterType="String">
+    <insert id="addType" parameterType="cn.ftf.myblog.pojo.Type">
+        <selectKey order="AFTER" resultType="java.lang.Integer" keyProperty="id">
+            SELECT LAST_INSERT_ID();
+        </selectKey>
         insert into t_type(name)values (#{name})
     </insert>
     <select id="findAll" resultMap="findAllTypeMap">
@@ -29,6 +31,9 @@
     </update>
     <select id="blogNum" parameterType="int" resultType="int">
         select count(*) from t_blog where type_id=#{id};
+    </select>
+    <select id="findByBlogId" parameterType="int" resultType="cn.ftf.myblog.pojo.Type">
+         SELECT type.* FROM t_type TYPE,t_blog blog WHERE blog.id=#{id} AND type.id=blog.type_id;
     </select>
 
 </mapper>

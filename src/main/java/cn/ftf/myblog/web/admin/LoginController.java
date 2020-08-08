@@ -5,10 +5,11 @@ import cn.ftf.myblog.pojo.User;
 import cn.ftf.myblog.utils.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.jws.WebParam;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,8 +30,9 @@ public class LoginController {
         return "admin/login";
     }
     @RequestMapping("/login")
-    public String login(@RequestParam String username, HttpSession httpSession,String password, RedirectAttributes redirectAttributes, HttpServletResponse response){
+    public String login(@RequestParam String username, HttpSession httpSession, String password, HttpServletResponse response, Model model){
         User user = userDao.findByUsername(username);
+        System.out.println(user);
         if(user!=null&&user.getPassword().equals(MD5Utils.code(password))){
 //            Cookie cookie=new Cookie("myblogCookie", MD5Utils.code(user.getPassword()));
 //            cookie.setMaxAge(60*60*24*15);
@@ -42,6 +44,7 @@ public class LoginController {
             response.addCookie(c);
             return "admin/index";
         }else {
+            model.addAttribute("message","用户名或密码错误，请校验！");
             return "admin/login";
         }
     }

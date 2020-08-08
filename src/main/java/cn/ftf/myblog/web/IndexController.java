@@ -47,10 +47,12 @@ public class IndexController {
         List<Type> allType = typeService.findAll();
         List<Tag> allTag = tagService.getAllTag();
         List<RecommendBlog> recommendedBlog = blogService.getRecommendedBlog();
+        List<RecommendBlog> mostBlog=blogService.getMostBlog();
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("tags", allTag);
         model.addAttribute("types", allType);
         model.addAttribute("recommendedBlogs", recommendedBlog);
+        model.addAttribute("mostBlog", mostBlog);
         long endTime=System.currentTimeMillis();
         System.out.println("---------------------");
         System.out.println(endTime-starTime);

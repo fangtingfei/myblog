@@ -32,11 +32,8 @@
                         </div>
                         <button class="ui fluid large teal submit button">登 录</button>
                     </div>
-
-                    <div class="ui error message"></div>
-                    <div class="ui mini negative messaage" th:unless="${#strings.isEmpty(message)}" th:text="${message}"></div>
                 </form>
-
+                    <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名或密码错误</div>
                 <div class="ui message">
                     本站暂未开放注册，敬请期待 &nbsp<a href="#" th:href="@{/getDevlog}"> 【开发日记】 </a>
                 </div>

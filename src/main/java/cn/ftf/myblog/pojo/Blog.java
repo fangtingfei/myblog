@@ -6,7 +6,7 @@ import java.util.List;
 
 
 public class Blog {
-    private int id;
+    private Integer id;
     private String title;
     private String content;
     private String firstPicture;
@@ -71,7 +71,7 @@ public class Blog {
 
     private List<Comment> comments = new ArrayList<>();
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

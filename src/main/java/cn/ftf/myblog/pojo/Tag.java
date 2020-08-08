@@ -1,16 +1,16 @@
 package cn.ftf.myblog.pojo;
 
 public class Tag {
-    private int id;
+    private Integer id;
     private String name;
-    private int blogNum;
+    private Integer blogNum;
 
-    public Tag(int id, String name) {
+    public Tag(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -26,7 +26,7 @@ public class Tag {
         this.name = name;
     }
 
-    public int getBlogNum() {
+    public Integer getBlogNum() {
         return blogNum;
     }
 

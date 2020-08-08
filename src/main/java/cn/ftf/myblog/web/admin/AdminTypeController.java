@@ -3,14 +3,13 @@ package cn.ftf.myblog.web.admin;
 import cn.ftf.myblog.entity.QueryPageBean;
 import cn.ftf.myblog.pojo.Type;
 import cn.ftf.myblog.service.TypeService;
+import cn.ftf.myblog.utils.RedisUtil;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -23,7 +22,7 @@ public class AdminTypeController {
     //列表页
     @RequestMapping("/types")
     public String list(Model model,@RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum) {
-        QueryPageBean queryPageBean=new QueryPageBean(pageNum,6,null);
+        QueryPageBean queryPageBean=new QueryPageBean(pageNum,10,null);
         PageInfo pageInfo = typeService.pageQuery(queryPageBean);
         model.addAttribute("pageInfo", pageInfo);
         return "admin/types";
@@ -38,9 +37,9 @@ public class AdminTypeController {
 
     //Add
     @RequestMapping("/types/add")
-    public String Add(Type type, RedirectAttributes attributes, BindingResult result) {
+    public String Add(Type type) {
         //添加操作
-        typeService.addType(type.getName());
+        typeService.addType(type);
         return "redirect:/admin/types";
     }
 
@@ -52,8 +51,15 @@ public class AdminTypeController {
         return "redirect:/admin/types";
     }
 
+    @GetMapping("/types/update/{id}")
+    public String toUpdateType(@PathVariable Integer id,Model model){
+        Type type = typeService.findById(id);
+        model.addAttribute("type",type);
+        return "/admin/types-update";
+    }
+
     //进行修改
-    @RequestMapping("/types/update")
+    @PostMapping("/types/update")
     public String editPost(Type type) {
         typeService.updateType(type);
         return "redirect:/admin/types";

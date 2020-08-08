@@ -99,18 +99,19 @@ public class BlogController {
             blog.setFirstPicture("");
         }
         if(blog.getFirstPicture()=="") {
-            File fileName=new File("D:\\test\\"+blog.getTitle()+".png");
-            File file = FirImgUtils.createImage(blog.getTitle(), new Font("宋体", Font.BOLD, 60), fileName, 800, 400);
-            HttpHeaders headers = new HttpHeaders();
-            //设置提交方式都是表单提交
-            headers.setContentType(MediaType.MULTIPART_FORM_DATA);
-            //设置表单信息
-            MultiValueMap<String, Object> params = new LinkedMultiValueMap<>();
-            params.add("file", new FileSystemResource(file));
-            HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(params, headers);
-            String imgUrl = restTemplate.postForObject(
-                    "http://127.0.0.1:18084/upload/file", requestEntity, String.class);
-            //            ByteArrayOutputStream baos=new ByteArrayOutputStream();
+            try {
+                File fileName=new File("D:\\test\\"+blog.getTitle()+".png");
+                File file = FirImgUtils.createImage(blog.getTitle(), new Font("宋体", Font.BOLD, 60), fileName, 800, 400);
+                HttpHeaders headers = new HttpHeaders();
+                //设置提交方式都是表单提交
+                headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+                //设置表单信息
+                MultiValueMap<String, Object> params = new LinkedMultiValueMap<>();
+                params.add("file", new FileSystemResource(file));
+                HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(params, headers);
+                String imgUrl = restTemplate.postForObject(
+                        "http://127.0.0.1:18084/upload/file", requestEntity, String.class);
+                //            ByteArrayOutputStream baos=new ByteArrayOutputStream();
 //            baos=(ByteArrayOutputStream) imgOutputStream;
 //            System.out.println("---------->"+baos.size());
 //            ByteArrayInputStream in = new ByteArrayInputStream(baos.toByteArray());
@@ -150,8 +151,12 @@ public class BlogController {
 ////                swapInputStream.close();
 ////            }
 //        }
-            blog.setFirstPicture(imgUrl);
-            fileName.delete();
+                blog.setFirstPicture(imgUrl);
+                fileName.delete();
+            } catch (Exception e) {
+                e.printStackTrace();
+                blog.setFirstPicture("文件上传失败，请联系管理员！");
+            }
         }
         blog.setUserId(user.getId());
         //设置blog的type

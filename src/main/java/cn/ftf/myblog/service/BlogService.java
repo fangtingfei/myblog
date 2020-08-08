@@ -13,11 +13,13 @@ public interface BlogService {
 
     List<BlogQuery> getAllBlog();
 
+    List<RecommendBlog> getMostBlog();
+
     void saveBlog(Blog blog);
 
     int updateBlog(ShowBlog showBlog);
 
-    int deleteBlog(Integer id);
+    void deleteBlog(Integer id);
 
     List<BlogQuery> getBlogBySearch(SearchBlog searchBlog);
 

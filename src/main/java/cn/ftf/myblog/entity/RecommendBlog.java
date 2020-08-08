@@ -6,6 +6,23 @@ public class RecommendBlog {
     private Integer id;
     private String title;
     private boolean recommend=true;
+    private Integer views;
+
+    public boolean isRecommend() {
+        return recommend;
+    }
+
+    public void setRecommend(boolean recommend) {
+        this.recommend = recommend;
+    }
+
+    public Integer getViews() {
+        return views;
+    }
+
+    public void setViews(Integer views) {
+        this.views = views;
+    }
 
     public Integer getId() {
         return id;
@@ -29,6 +46,7 @@ public class RecommendBlog {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", recommend=" + recommend +
+                ", views=" + views +
                 '}';
     }
 }

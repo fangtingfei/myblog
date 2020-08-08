@@ -21,21 +21,35 @@ public class TagServiceImpl implements TagService {
     private TagDao tagDao;
 
     @Autowired
+    private StringRedisTemplate redisTemplate;
+
+    @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
     @Override
-    public int saveTag(Tag tag) {
-        return tagDao.saveTag(tag);
+    public void saveTag(Tag tag) {
+        tagDao.saveTag(tag);
+        redisTemplate.opsForZSet().add("tag",String.valueOf(tag.getId())+"-"+tag.getName(),0);
     }
 
     @Override
-    public int deleteTag(Integer id) {
-        return tagDao.deleteTag(id);
+    public void deleteTag(Integer id) {
+        Tag tag = tagDao.getById(id);
+        tagDao.deleteTag(id);
+        redisTemplate.opsForZSet().remove("tag",String.valueOf(tag.getId())+"-"+tag.getName());
     }
 
     @Override
-    public int updateTag(Tag tag) {
-        return tagDao.updateTag(tag);
+    public void updateTag(Tag tag) {
+        Tag ordTag = tagDao.getById(tag.getId());
+        String key=String.valueOf(ordTag.getId())+"-"+ordTag.getName();
+        //先查
+        Double score = stringRedisTemplate.opsForZSet().score("tag", key);
+        //再删
+        stringRedisTemplate.opsForZSet().remove("tag",key);
+        //再添
+        stringRedisTemplate.opsForZSet().add("tag",String.valueOf(tag.getId())+"-"+tag.getName(),score);
+        tagDao.updateTag(tag);
     }
 
     @Override

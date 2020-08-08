@@ -7,11 +7,11 @@ import com.github.pagehelper.PageInfo;
 import java.util.List;
 
 public interface TagService {
-    int saveTag(Tag tag);
+    void saveTag(Tag tag);
 
-    int deleteTag(Integer id);
+    void deleteTag(Integer id);
 
-    int updateTag(Tag tag);
+    void updateTag(Tag tag);
 
     Tag getById(Integer id);
 

@@ -7,13 +7,12 @@ import com.github.pagehelper.PageInfo;
 import java.util.List;
 
 public interface TypeService {
-    void addType(String typeName);
+    void addType(Type type);
     Type findById(Integer id);
     PageInfo pageQuery(QueryPageBean queryPageBean);
-    Type updateType(Integer id, Type type);
     void delete(Integer id);
     List<Type> findAll();
     List<Type> findAll_1();
-    int updateType(Type type);
+    void updateType(Type type);
     int blogNum(Integer id);
 }
