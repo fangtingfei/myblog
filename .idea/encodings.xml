@@ -2,6 +2,11 @@
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8" addBOMForNewFiles="with NO BOM">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/controller/AboutController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/controller/CommentController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/controller/TagController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/controller/TypeController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/controller/admin/BlogController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/dao/CommentDao.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/pojo/Blog.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/pojo/Comment.java" charset="UTF-8" />
@@ -10,11 +15,6 @@
     <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/CommentService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/service/CommentServiceImpl.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/utils/MarkdownUtils.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/AboutController.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/CommentController.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/TagController.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/TypeController.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/ftf/myblog/web/admin/BlogController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/mapper/BlogMapper.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/mapper/CommentMapper.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/css" charset="UTF-8" />

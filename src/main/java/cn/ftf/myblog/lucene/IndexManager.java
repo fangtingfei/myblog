@@ -25,7 +25,7 @@ import java.util.List;
 public class IndexManager {
     @Autowired
     private BlogService blogService;
-    @RequestMapping("lucene")
+    @RequestMapping("/lucene")
     public String createIndex() throws IOException {
         //采集数据
         List<Blog> allBlog = blogService.getAllPojoBlog();
@@ -54,7 +54,7 @@ public class IndexManager {
         //创建分词器
         Analyzer analyzer=new IKAnalyzer();
         //创建索引库目录对象
-        Directory dir= FSDirectory.open(Paths.get("C:/app/myblog/lucene/dir"));
+        Directory dir= FSDirectory.open(Paths.get("/app/myblog/lucene/dir"));
         //创建IndexWriterConfig对象
         IndexWriterConfig config=new IndexWriterConfig(analyzer);
         //创建IndexWrite输出流对象，指定输出位置和创建配置

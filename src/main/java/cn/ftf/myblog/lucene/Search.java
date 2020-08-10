@@ -37,7 +37,7 @@ public class Search {
         Query query = queryParser.parse(queryString);//参数中有指定域，则从指定域中差，没有就从上面的默认查询域中查
         System.out.println(query);
         //创建Director目录对象，指定索引库坐在位置
-        Directory dir= FSDirectory.open(Paths.get("C:/app/myblog/lucene/dir"));
+        Directory dir= FSDirectory.open(Paths.get("/app/myblog/lucene/dir"));
         //创建输入流对象
         IndexReader indexReader= DirectoryReader.open(dir);
         //创建搜索对象

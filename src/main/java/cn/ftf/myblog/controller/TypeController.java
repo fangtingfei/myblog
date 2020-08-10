@@ -1,9 +1,9 @@
-package cn.ftf.myblog.web;
+package cn.ftf.myblog.controller;
 
 import cn.ftf.myblog.entity.FirstPageBlog;
-import cn.ftf.myblog.pojo.Tag;
+import cn.ftf.myblog.pojo.Type;
 import cn.ftf.myblog.service.BlogService;
-import cn.ftf.myblog.service.TagService;
+import cn.ftf.myblog.service.TypeService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,29 +16,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-public class
-TagController {
+public class TypeController {
 
     @Autowired
-    private TagService tagService;
+    private TypeService typeService;
 
     @Autowired
     private BlogService blogService;
 
-    @GetMapping("/tags/{id}")
-    public String tag(@RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum,
-                      @PathVariable Integer id, Model model) {
-        List<Tag> allTag = tagService.getAllTag();
+    @GetMapping("/types/{id}")
+    public String types(@RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum, @PathVariable Integer id, Model model) {
+        List<Type> allType = typeService.findAll();
         //-1表示从首页导航点进来的
         if (id == -1) {
-            id = allTag.get(0).getId();
+            id = allType.get(0).getId();
         }
-        model.addAttribute("tags", allTag);
-        List<FirstPageBlog> blogs = blogService.getByTagId(id);
-        PageHelper.startPage(pageNum, 1);
+        model.addAttribute("types", allType);
+        List<FirstPageBlog> blogs = blogService.getByTypeId(id);
+        PageHelper.startPage(pageNum, 10);
         PageInfo<FirstPageBlog> pageInfo = new PageInfo<>(blogs);
         model.addAttribute("pageInfo", pageInfo);
-        model.addAttribute("activeTagId", id);
-        return "tags";
+        model.addAttribute("activeTypeId", id);
+        return "types";
     }
+
 }

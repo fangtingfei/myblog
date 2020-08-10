@@ -56,45 +56,82 @@
 </div>
 
 <!--footer-->
-    <footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive">
-        <div class="ui center aligned container">
-            <div class="ui inverted divided stackable grid">
-                <div class="three wide column">
-                    <div class="ui inverted link list">
-                        <div class="item">
-                            <img src="../static/images/wechat.jpg" th:src="@{/images/wechatOfficial.jpg}" class="ui rounded image" alt="" style="width: 110px">
+<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">添加我</h4>
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/wechat.jpg" th:src="@{/images/wechatAvatar.png}" class="ui rounded image" alt="" style="width: 110px">
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">关注我</h4>
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/wechat.jpg" th:src="@{/images/wechatOfficial.jpg}" class="ui rounded image" alt="" style="width: 110px">
+                    </div>
+                </div>
+                <!--<div class="ui inverted link list">-->
+                <!--&lt;!&ndash;<a href="#" class="item m-text-thin">-&#45;&#45;&#45;&#45;敬请期待-&#45;&#45;&#45;&#45;</a>&ndash;&gt;-->
+                <!--</div>-->
+            </div>
+
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">快捷链接</h4>
+                <div class="ui compact menu" style="width: 6em;background: #1B1C1D;padding: 0.1em !important">
+                    <div class="ui simple dropdown item" style="padding: 0.1em !important;color: #f1f1f1;font:11px/1.1 Tahoma,Helvetica,Arial,'宋体',sans-serif;height: 1.2em">快捷链接-搜索<i class="dropdown icon" ></i>
+                        <div class="menu" style="padding: 0.1em !important;background-color: #1B1C1D">
+                            <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://www.baidu.com/">百度</a></div>
+                            <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://cn.bing.com/">必应</a></div>
+                            <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://www.sogou.com/">搜狗</a></div>
+                            <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://www.google.com">谷歌</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="three wide column">
-                    <h4 class="ui inverted header m-text-thin m-text-spaced " >便捷链接</h4>
-                    <div class="ui inverted link list">
-                        <!--<a href="#" class="item m-text-thin">-&#45;&#45;&#45;&#45;敬请期待-&#45;&#45;&#45;&#45;</a>-->
-                        <!--<a href="#" class="item m-text-thin">-&#45;&#45;&#45;&#45;敬请期待-&#45;&#45;&#45;&#45;</a>-->
-                        <!--<a href="#" class="item m-text-thin">-&#45;&#45;&#45;&#45;敬请期待-&#45;&#45;&#45;&#45;</a>-->
-                        <!--<a href="#" class="item m-text-thin">-&#45;&#45;&#45;&#45;敬请期待-&#45;&#45;&#45;&#45;</a>-->
+                <br>
+                <div class="ui compact menu" style="width: 6em;background: #1B1C1D;padding: 0.1em !important">
+                    <div class="ui simple dropdown item" style="padding: 0.1em !important;color: #f1f1f1;font:11px/1.1 Tahoma,Helvetica,Arial,'宋体',sans-serif;height: 1.2em">快捷链接-学习<i class="dropdown icon" ></i>
+                        <div class="menu" style="padding: 0.1em !important;background-color: #1B1C1D">
+                            <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://www.nowcoder.com/">牛客网</a></div>
+                            <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://leetcode-cn.com/">LeetCode</a></div>
+                            <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://github.com/fangtingfei">GitHub</a></div>
+                            <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://www.cnblogs.com/">博客园</a></div>
+                            <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://www.csdn.net/">CSDN</a></div>
+                        </div>
                     </div>
                 </div>
-                <div class="three wide column">
-                    <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
-                    <div class="ui inverted link list">
-                        <a href="#" class="item m-text-thin">Email：fangtingfei1@163.com</a>
-                        <a href="#" class="item m-text-thin">Wechat： ftf15965912598</a>
-                        <a href="#" class="item m-text-thin">QQ：1159851944</a>
-
+                <br>
+                <div class="ui compact menu" style="width: 6em;background: #1B1C1D;padding: 0.1em !important">
+                    <div class="ui simple dropdown item" style="padding: 0.1em !important;color: #f1f1f1;font:11px/1.1 Tahoma,Helvetica,Arial,'宋体',sans-serif;height: 1.2em">快捷链接-其它<i class="dropdown icon" ></i>
+                        <div class="menu" style="padding: 0.1em !important;background-color: #1B1C1D">
+                            <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://www.bilibili.com/">B站</a></div>
+                            <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://www.zhihu.com/">知乎</a></div>
+                            <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://translate.google.cn/">谷歌翻译</a></div>
+                            <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://www.yingjiesheng.com/">应届生求职网</a></div>
+                        </div>
                     </div>
-                </div>
-                <div class="seven wide column">
-                    <h4 class="ui inverted header m-text-thin m-text-spaced ">Blog</h4>
-                    <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
                 </div>
             </div>
-            <div class="ui inverted section divider"></div>
-            <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2019 - 2020 FangTingfei Designed by FangTingfei</p>
+            <!--<div class="three wide column">-->
+            <!--<h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>-->
+            <!--<div class="ui inverted link list">-->
+            <!--<p class="item m-text-thin">Email：fangtingfei1@163.com</p>-->
+            <!--<p class="item m-text-thin">Wechat：ftf15965912598</p>-->
+            <!--<p class="item m-text-thin">QQ：1159851944</p>-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">Blog</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客。会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
+            </div>
         </div>
-
-
-    </footer>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2019 - 2020 CodeFlyer Designed by FangTingfei</p>
+    </div>
+</footer>
 <th:block th:fragment="js">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>

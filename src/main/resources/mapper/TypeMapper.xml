@@ -13,7 +13,7 @@
     </select>
     <insert id="addType" parameterType="cn.ftf.myblog.pojo.Type">
         <selectKey order="AFTER" resultType="java.lang.Integer" keyProperty="id">
-            SELECT LAST_INSERT_ID();
+            SELECT LAST_INSERT_ID()
         </selectKey>
         insert into t_type(name)values (#{name})
     </insert>
@@ -27,13 +27,13 @@
         delete from t_type where id=#{value}
     </delete>
     <update id="updateType" parameterType="cn.ftf.myblog.pojo.Type">
-        update t_type set name = #{name} where id = #{id};
+        update t_type set name = #{name} where id = #{id}
     </update>
     <select id="blogNum" parameterType="int" resultType="int">
-        select count(*) from t_blog where type_id=#{id};
+        select count(*) from t_blog where type_id=#{id}
     </select>
     <select id="findByBlogId" parameterType="int" resultType="cn.ftf.myblog.pojo.Type">
-         SELECT type.* FROM t_type TYPE,t_blog blog WHERE blog.id=#{id} AND type.id=blog.type_id;
+         SELECT type.* FROM t_type type,t_blog blog WHERE blog.id=#{id} AND type.id=blog.type_id
     </select>
 
 </mapper>

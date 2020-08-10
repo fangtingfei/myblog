@@ -1,4 +1,4 @@
-package cn.ftf.myblog.web.admin;
+package cn.ftf.myblog.controller.admin;
 
 import cn.ftf.myblog.dao.UserDao;
 import cn.ftf.myblog.pojo.User;
@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.jws.WebParam;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

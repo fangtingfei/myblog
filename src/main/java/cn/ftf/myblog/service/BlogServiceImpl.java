@@ -57,8 +57,7 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public List<RecommendBlog> getMostBlog() {
         List<RecommendBlog> resList=new ArrayList<>();
-//        Set<String> mostBlog = redisTemplate.opsForZSet().reverseRange("blog", 0l, 4l);
-        Set<ZSetOperations.TypedTuple<String>> mostBlog = redisTemplate.opsForZSet().reverseRangeWithScores("blog", 0l, 6l);
+        Set<ZSetOperations.TypedTuple<String>> mostBlog = redisTemplate.opsForZSet().reverseRangeWithScores("blog", 0l, 7l);
         for(ZSetOperations.TypedTuple<String> blog:mostBlog){
             String str = blog.getValue();
             Double score = blog.getScore();
@@ -100,16 +99,10 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public int updateBlog(ShowBlog showBlog) {
+    public void updateBlog(ShowBlog showBlog) {
         showBlog.setUpdateTime(new Date());
-        tagDao.deleteBlogAndTag(showBlog.getId());
         String tagIds = showBlog.getTagIds();
-        List<Integer> tags=StringListToList(tagIds);
-        BlogAndTag blogAndTag=null;
-        for (Integer tagId : tags) {
-            blogAndTag = new BlogAndTag(tagId,showBlog.getId());
-            blogDao.saveBlogAndTag(blogAndTag);
-        }
+        List<Integer> tags=StringListToList(tagIds);  //新标签id
         //先删掉redis记录
         Type type = typeDao.findByBlogId(showBlog.getId());
         redisTemplate.opsForZSet().incrementScore("type", String.valueOf(type.getId())+"-"+type.getName(), -1);
@@ -118,14 +111,21 @@ public class BlogServiceImpl implements BlogService {
             redisTemplate.opsForZSet().incrementScore("tag", String.valueOf(tag.getId())+"-"+tag.getName(), -1);
         }
 
+        tagDao.deleteBlogAndTag(showBlog.getId());
+        BlogAndTag blogAndTag=null;
+        for (Integer tagId : tags) {
+            blogAndTag = new BlogAndTag(tagId,showBlog.getId());
+            blogDao.saveBlogAndTag(blogAndTag);
+        }
+        blogDao.updateBlog(showBlog);
+
         //再存上
         Type rtype=typeDao.findById(showBlog.getTypeId());
         redisTemplate.opsForZSet().incrementScore("type", String.valueOf(rtype.getId())+"-"+rtype.getName(), 1);
         for (Integer tagId : tags) {
-            Type tag = typeDao.findById(tagId);
+            Tag tag = tagDao.getById(tagId);
             redisTemplate.opsForZSet().incrementScore("tag", String.valueOf(tagId)+"-"+tag.getName(), 1);
         }
-        return blogDao.updateBlog(showBlog);
     }
 
     @Override
@@ -166,7 +166,7 @@ public class BlogServiceImpl implements BlogService {
     public List<RecommendBlog> getRecommendedBlog() {
 //        List<RecommendBlog> allRecommendBlog = blogDao.getAllRecommendBlog();
         List<RecommendBlog> recommendBlogs=new ArrayList<>();
-        List<String> latest_blog = redisTemplate.opsForList().range("latest_blog", 0l, 5l);
+        List<String> latest_blog = redisTemplate.opsForList().range("latest_blog", 0l, 4l);
         for(String str:latest_blog){
             RecommendBlog recommendBlog=new RecommendBlog();
             recommendBlog.setId(Integer.parseInt(str.split("-")[0]));

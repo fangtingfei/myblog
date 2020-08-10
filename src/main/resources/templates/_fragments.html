@@ -16,7 +16,7 @@
 <body>
 
 <!--导航-->
-<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
+<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small gird-header" >
     <div class="ui container" style="width: 1300px">
         <div class="ui inverted secondary stackable menu">
             <h2 style="float: left" class="ui teal header item">CodeFlyer</h2>
@@ -25,7 +25,8 @@
             <a th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i>&nbsp分类</a>
             <a th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>&nbsp&nbsp标签</a>
             <a th:href="@{/getDiary}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="calendar alternate icon"></i>&nbsp日志/备忘</a>
-            <a th:href="@{/admin/file/upload}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="save icon"></i>文件系统</a>
+            <a th:href="@{/music}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="music icon"></i>&nbsp音乐盒</a>
+            <a th:href="@{/admin/file/upload}" class="m-item item m-mobile-hide" th:classappend="${n==6} ? 'active'"><i class="save icon"></i>&nbsp文件系统</a>
             <div class="right m-item item m-mobile-hide">
                 <form name="search" action="/myblog/search" method="get" target="_blank">
                 <div class="ui icon inverted input m-margin-tb-tiny">
@@ -50,7 +51,7 @@
                     <h4 class="ui inverted header m-text-thin m-text-spaced">添加我</h4>
                     <div class="ui inverted link list">
                         <div class="item">
-                            <img src="../static/images/wechat.jpg" th:src="@{/images/wechatavatar.png}" class="ui rounded image" alt="" style="width: 110px">
+                            <img src="../static/images/wechat.jpg" th:src="@{/images/wechatAvatar.png}" class="ui rounded image" alt="" style="width: 110px">
                         </div>
                     </div>
                 </div>
@@ -68,30 +69,39 @@
 
                 <div class="three wide column">
                     <h4 class="ui inverted header m-text-thin m-text-spaced">快捷链接</h4>
-
-                        <div class="ui compact menu" style="width: 6em;background: #1B1C1D;padding: 0.1em !important">
-                        <div class="ui simple dropdown item" style="padding: 0.1em !important;color: #f1f1f1;font:11px/1.1 Tahoma,Helvetica,Arial,'宋体',sans-serif;height: 1.2em">快捷链接-学习<i class="dropdown icon" ></i>
+                    <div class="ui compact menu" style="width: 6em;background: #1B1C1D;padding: 0.1em !important">
+                        <div class="ui simple dropdown item" style="padding: 0.1em !important;color: #f1f1f1;font:11px/1.1 Tahoma,Helvetica,Arial,'宋体',sans-serif;height: 1.2em">快捷链接-搜索<i class="dropdown icon" ></i>
                             <div class="menu" style="padding: 0.1em !important;background-color: #1B1C1D">
-                                <div class="item" style="padding: 0.1em !important"><a style="color: #f1f1f1" href="http://newcode.com">牛客网</a></div>
-                                <div class="item" style="padding: 0.1em !important"><a style="color: #f1f1f1" href="http://newcode.com">牛客网</a></div>
-                                <div class="item" style="padding: 0.1em !important"><a style="color: #f1f1f1" href="http://newcode.com">牛客网</a></div>
-                                <div class="item" style="padding: 0.1em !important"><a style="color: #f1f1f1" href="http://newcode.com">牛客网</a></div>
+                                <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://www.baidu.com/">百度</a></div>
+                                <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://cn.bing.com/">必应</a></div>
+                                <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://www.sogou.com/">搜狗</a></div>
+                                <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://www.google.com">谷歌</a></div>
                             </div>
                         </div>
                     </div>
-
                     <br>
-                        <div class="ui compact menu" style="width: 6em;background: #1B1C1D;padding: 0.1em !important">
-                            <div class="ui simple dropdown item" style="padding: 0.1em !important;color: #f1f1f1;font:11px/1.1 Tahoma,Helvetica,Arial,'宋体',sans-serif;height: 1.2em">快捷链接-社区<i class="dropdown icon" ></i>
-                                <div class="menu" style="padding: 0.1em !important;background-color: #1B1C1D">
-                                    <div class="item" style="padding: 0.1em !important"><a style="color: #f1f1f1" href="http://newcode.com">牛客网</a></div>
-                                    <div class="item" style="padding: 0.1em !important"><a style="color: #f1f1f1" href="http://newcode.com">牛客网</a></div>
-                                    <div class="item" style="padding: 0.1em !important"><a style="color: #f1f1f1" href="http://newcode.com">牛客网</a></div>
-                                    <div class="item" style="padding: 0.1em !important"><a style="color: #f1f1f1" href="http://newcode.com">牛客网</a></div>
-                                </div>
+                    <div class="ui compact menu" style="width: 6em;background: #1B1C1D;padding: 0.1em !important">
+                        <div class="ui simple dropdown item" style="padding: 0.1em !important;color: #f1f1f1;font:11px/1.1 Tahoma,Helvetica,Arial,'宋体',sans-serif;height: 1.2em">快捷链接-学习<i class="dropdown icon" ></i>
+                            <div class="menu" style="padding: 0.1em !important;background-color: #1B1C1D">
+                                <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://www.nowcoder.com/">牛客网</a></div>
+                                <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://leetcode-cn.com/">LeetCode</a></div>
+                                <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://github.com/fangtingfei">GitHub</a></div>
+                                <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://www.cnblogs.com/">博客园</a></div>
+                                <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://www.csdn.net/">CSDN</a></div>
                             </div>
                         </div>
-
+                    </div>
+                    <br>
+                    <div class="ui compact menu" style="width: 6em;background: #1B1C1D;padding: 0.1em !important">
+                        <div class="ui simple dropdown item" style="padding: 0.1em !important;color: #f1f1f1;font:11px/1.1 Tahoma,Helvetica,Arial,'宋体',sans-serif;height: 1.2em">快捷链接-其它<i class="dropdown icon" ></i>
+                            <div class="menu" style="padding: 0.1em !important;background-color: #1B1C1D">
+                                <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://www.bilibili.com/">B站</a></div>
+                                <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://www.zhihu.com/">知乎</a></div>
+                                <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://translate.google.cn/">谷歌翻译</a></div>
+                                <div class="item" style="padding: 0.1em !important"><a target="_blank" style="color: #f1f1f1" href="https://www.yingjiesheng.com/">应届生求职网</a></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!--<div class="three wide column">-->
                     <!--<h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>-->

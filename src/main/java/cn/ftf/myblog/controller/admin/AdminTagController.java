@@ -1,4 +1,4 @@
-package cn.ftf.myblog.web.admin;
+package cn.ftf.myblog.controller.admin;
 
 import cn.ftf.myblog.entity.QueryPageBean;
 import cn.ftf.myblog.pojo.Tag;

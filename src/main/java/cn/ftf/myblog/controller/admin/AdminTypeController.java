@@ -1,16 +1,13 @@
-package cn.ftf.myblog.web.admin;
+package cn.ftf.myblog.controller.admin;
 
 import cn.ftf.myblog.entity.QueryPageBean;
 import cn.ftf.myblog.pojo.Type;
 import cn.ftf.myblog.service.TypeService;
-import cn.ftf.myblog.utils.RedisUtil;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/admin")

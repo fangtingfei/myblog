@@ -1,4 +1,4 @@
-package cn.ftf.myblog.web;
+package cn.ftf.myblog.controller;
 
 import cn.ftf.myblog.NotFountException;
 import cn.ftf.myblog.entity.DetailedBlog;
@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller

@@ -1,4 +1,4 @@
-package cn.ftf.myblog.web.admin;
+package cn.ftf.myblog.controller.admin;
 
 import cn.ftf.myblog.entity.BlogQuery;
 import cn.ftf.myblog.entity.SearchBlog;
@@ -13,13 +13,10 @@ import cn.ftf.myblog.service.TypeService;
 import cn.ftf.myblog.utils.FirImgUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.jta.WebSphereUowTransactionManager;
 import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
